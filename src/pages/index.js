@@ -7,7 +7,7 @@ import Button from "../components/button"
 
 class IndexPage extends React.Component {
   render() {
-    const siteTitle = "Alex Andrade <Blog />"
+    const siteTitle = "Hero Dev"
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -24,12 +24,13 @@ class IndexPage extends React.Component {
         </h1>
         <p>Welcome to my blog. </p>
         <p>
-          A lot of times we as developers solve hard problems (despite of all
-          the documentation over there) but we forget that others might face the
-          same problems as well. The goal here is share great content with the
-          dev comunity.
+          All of us, devs, master superpowers. A lot of times we save the day
+          solving hard problems with code, but we forget others might face the
+          same problem as well and we can empower them with the same solution.
+          The goal here is to share great content with the dev comunity that can
+          help you on your hero journey.
         </p>
-        <p>Enjoy!</p>
+        <p>Lets save the day with code!</p>
         <Link to="/blog/">
           <Button marginTop="35px">Go to Blog</Button>
         </Link>

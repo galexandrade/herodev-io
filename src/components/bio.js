@@ -42,7 +42,7 @@ function Bio() {
               </strong>
               .
               <br />
-              Helping developers to write better code.
+              Saving the day with code.
             </p>
           </Container>
         )
