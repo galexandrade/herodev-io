@@ -86,5 +86,11 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    {
+      resolve: `gatsby-plugin-mailchimp`,
+      options: {
+        endpoint: `https://herodev.us4.list-manage.com/subscribe/post?u=23fd5221628ea75834fa3f2d4&amp;id=d4a000537f`,
+      },
+    },
   ],
 }

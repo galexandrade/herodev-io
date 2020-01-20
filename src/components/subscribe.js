@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import Image from "gatsby-image"
 import { StaticQuery, graphql } from "gatsby"
@@ -6,9 +6,17 @@ import { StaticQuery, graphql } from "gatsby"
 import { rhythm } from "../utils/typography"
 import Button from "./button"
 
+import addToMailchimp from "gatsby-plugin-mailchimp"
+
 function Subscribe() {
+  const [firstName, setFirstName] = useState("")
+  const [email, setEmail] = useState("")
+
   const handleSubmit = e => {
     e.preventDefault()
+    addToMailchimp(email, {
+      FNAME: firstName,
+    }).then(result => console.log(result))
   }
   return (
     <StaticQuery
@@ -36,12 +44,16 @@ function Subscribe() {
                   name="firstname"
                   placeholder="Your first name"
                   required
+                  value={firstName}
+                  onChange={e => setFirstName(e.target.value)}
                 />
                 <Input
                   type="email"
                   name="email"
                   placeholder="Your email"
                   required
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
                 />
                 <Button>Subscribe</Button>
               </form>
