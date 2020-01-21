@@ -1,5 +1,6 @@
 backend:
-  name: test-repo
+  name: github
+  repo: galexandrade/herodev-io
 
 media_folder: static/assets
 public_folder: assets
