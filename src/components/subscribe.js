@@ -12,7 +12,7 @@ function Subscribe() {
   const [isSubscribing, setIsSubscribing] = useState(false)
   const [firstName, setFirstName] = useState("")
   const [email, setEmail] = useState("")
-  const [subscription, setSubscription] = useState({ result: "success" })
+  const [subscription, setSubscription] = useState(null)
 
   const handleSubmit = e => {
     e.preventDefault()
