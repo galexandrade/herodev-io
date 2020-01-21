@@ -9,15 +9,64 @@ import Button from "./button"
 import addToMailchimp from "gatsby-plugin-mailchimp"
 
 function Subscribe() {
+  const [isSubscribing, setIsSubscribing] = useState(false)
   const [firstName, setFirstName] = useState("")
   const [email, setEmail] = useState("")
+  const [subscription, setSubscription] = useState({ result: "success" })
 
   const handleSubmit = e => {
     e.preventDefault()
+    if (isSubscribing) {
+      return
+    }
+    setIsSubscribing(true)
     addToMailchimp(email, {
       FNAME: firstName,
-    }).then(result => console.log(result))
+    }).then(result => {
+      console.log(result)
+      setIsSubscribing(false)
+      setSubscription(result)
+    })
   }
+
+  const SubscriptionForm = () => (
+    <form onSubmit={handleSubmit}>
+      <Input
+        type="text"
+        name="firstname"
+        placeholder="Your first name"
+        required
+        value={firstName}
+        onChange={e => setFirstName(e.target.value)}
+      />
+      <Input
+        type="email"
+        name="email"
+        placeholder="Your email"
+        required
+        value={email}
+        onChange={e => setEmail(e.target.value)}
+      />
+      {subscription && subscription.result === "error" && (
+        <p
+          style={{ fontSize: 12, marginBottom: 15, color: "red" }}
+          dangerouslySetInnerHTML={{ __html: subscription.msg }}
+        ></p>
+      )}
+      <Button>{isSubscribing ? "Subscribing..." : "Subscribe"}</Button>
+      <p
+        style={{
+          fontSize: 12,
+          marginTop: 8,
+          marginBottom: 0,
+          color: "#CCCCCC",
+        }}
+      >
+        I'm not going to send you span :).
+      </p>
+    </form>
+  )
+
   return (
     <StaticQuery
       query={bioQuery}
@@ -38,25 +87,11 @@ function Subscribe() {
               />
             </Row>
             <Row>
-              <form onSubmit={handleSubmit}>
-                <Input
-                  type="text"
-                  name="firstname"
-                  placeholder="Your first name"
-                  required
-                  value={firstName}
-                  onChange={e => setFirstName(e.target.value)}
-                />
-                <Input
-                  type="email"
-                  name="email"
-                  placeholder="Your email"
-                  required
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                />
-                <Button>Subscribe</Button>
-              </form>
+              {subscription && subscription.result === "success" ? (
+                <p>Thank you for subscribing!</p>
+              ) : (
+                <SubscriptionForm />
+              )}
             </Row>
           </Container>
         )
