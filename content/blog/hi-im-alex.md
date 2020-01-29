@@ -18,7 +18,7 @@ I DO CARE A LOT ABOUT TESTS! It is all about getting confidence from your code. 
 
 During my spare time I love spending time outside with my wife and two daughters. On the summer we use to go camping, explore new places and breath fresh air. Believe me, do spend time with your loved ones, you might have the most successful career in the world but, if you have a failed family, that does not worth it.
 
-\[FAMILY IMAGE]
+![Me and my family visiting Banff](/assets/family.jpg "Me and my family visiting Banff")
 
 Before I came here I worked for 4 years at [TOTVS](https://en.totvs.com/), the largest technology company in Latin America. There, I learned in practice how is it like to maintain a H U G E software used for large customers, going out of just software development and in fact iterating with customers and learning with them (it makes total difference).
 
