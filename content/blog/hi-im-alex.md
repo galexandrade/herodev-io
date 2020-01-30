@@ -20,6 +20,8 @@ During my spare time I love spending time outside with my wife and two daughters
 
 ![Me and my family visiting Banff](/assets/family.jpg "Me and my family visiting Banff")
 
+_\[Me and my family visiting Banff]_
+
 Before I came here I worked for 4 years at [TOTVS](https://en.totvs.com/), the largest technology company in Latin America. There, I learned in practice how is it like to maintain a H U G E software used for large customers, going out of just software development and in fact iterating with customers and learning with them (it makes total difference).
 
 **Where can you find me?**
