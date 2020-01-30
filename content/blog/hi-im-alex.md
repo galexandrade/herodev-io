@@ -10,7 +10,9 @@ I am currently living in [Saskatoon, Canada, the land of living skies](https://w
 
 If you are passionate about solving hard problems, this might bee a good place for you as well.
 
-\[OFFICE IMAGE]
+![Me at 7shifts Saskatoon office](/assets/7shifts-office.jpg "Me at 7shifts Saskatoon office")
+
+_\-Me at 7shifts Saskatoon office-_
 
 Even though I am a full stack developer, I  L O V E  front end. It is amazing how [React hooks](https://reactjs.org/docs/hooks-intro.html) has changed how we share behaviour between our application keeping our code clean and readable (if well implemented, of course). The goal of this blog is to share small tips, common pitfalls, and code examples on how to solve problems you might face also leveraging our code quality and performance.
 
@@ -20,10 +22,14 @@ During my spare time I love spending time outside with my wife and two daughters
 
 ![Me and my family visiting Banff](/assets/family.jpg "Me and my family visiting Banff")
 
-_\[Me and my family visiting Banff]_
+_\-Me and my family visiting Banff-_
 
 Before I came here I worked for 4 years at [TOTVS](https://en.totvs.com/), the largest technology company in Latin America. There, I learned in practice how is it like to maintain a H U G E software used for large customers, going out of just software development and in fact iterating with customers and learning with them (it makes total difference).
 
 **Where can you find me?**
 
-Here on [herodev.io](herodev.io) or on [LinkedIn](https://www.linkedin.com/in/palexandrade/).
+Hero Dev Blog: [herodev.io](https://www.herodev.io/)
+
+LinkedIn: [linkedin.com/in/palexandrade](https://www.linkedin.com/in/palexandrade/)
+
+GitHub: [github.com/galexandrade](https://github.com/galexandrade)
