@@ -43,3 +43,5 @@ Since hooks was introduced to React-DnD it is been much easier to understande th
 \[SOME REACT-DND HOOKS CODE]
 
 Concluding
+
+As we can see hooks has been empowering React libraries world wide. What I most like, is how it improves the readability of the components reducing boilerplate. It becomes easier to follow, you know your component is using .
