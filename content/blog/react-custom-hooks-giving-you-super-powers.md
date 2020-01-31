@@ -8,7 +8,49 @@ Since React v16.8.0 where hooks was released it has changed the way we write our
 
 Before React 16.8.0, the main way to share behaviour between your components was using a pattern called [Higher Order Components (alson known as HOC)](https://reactjs.org/docs/higher-order-components.html). That approach allows you to empower your components with extra functionalities.
 
-\[EXAMPLE]
+In this example `withSpecialPower` is adding to the component the prop `specialPower` containing a random special power (just to exemplify).
+
+_Hero.js_
+
+```javascript
+import React from "react";
+import withSpecialPower from './withSpecialPower';
+
+const Hero = ({name, specialPower}) => {
+  return (
+      <h2>{name} - I can {specialPower}</h2>
+  );
+}
+
+export default withSpecialPower(Hero);
+```
+
+_withSpecialPower.js_
+
+```javascript
+import React from 'react';
+
+const withSpecialPower = (Component) => {
+  return class WithHover extends React.Component {
+    render() {
+      const specialPowerList = [
+        'be invisible',
+        'flight',
+        'see the future',
+        'read your mind'
+      ];
+      const specialPower = specialPowerList[
+        Math.floor(Math.random() * specialPowerList.length)
+      ];
+      return <Component {...this.props} specialPower={specialPower} />
+    }
+  }
+};
+
+export default withSpecialPower;
+```
+
+[![Edit higher-order-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/sweet-cloud-bfx58?fontsize=14&hidenavigation=1&theme=dark)
 
 This pattern was used widely by a lot of libraries like Redux, Formik, \[CITE OTHERS]. However, since hooks was introduced they started using all the power hooks is giving to leverage the quality of their libraries. Let's take a look on how the code looks like using higher order components compared using hooks on some of those libraries.
 
