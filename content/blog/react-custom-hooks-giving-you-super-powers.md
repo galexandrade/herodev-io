@@ -32,4 +32,14 @@ Since Formik v2, we can use \`useFormik\` hook to do the same thing as before, b
 
 \[PIECE OF CODE FORMIK HOOKS]
 
-Another good example of a library completely changed by hooks is React-Dnd that helps us drag and drop elements. Before hooks the code to to make your drag and drop
+React-DnD
+
+Another good example of a library completely changed by hooks is React-DnD that helps us drag and drop elements. Before hooks, the code to to make your drag and drop the code looked like a nightmare, only who was familiar with the library could undeerstand what was going on. Take a look on the links under Legacy Decorator API on the React-Dnd documentation to have an idea what what I am talking about.
+
+\[SOME OLD REACT-DND CODE]
+
+Since hooks was introduced to React-DnD it is been much easier to understande the code. \`useDrag\` and \`useDrop\` is much more readable, eve if you are not familiar with the library, you know that is doing, for instance, if a component is using \`useDrag\` you presume that component is draggable.
+
+\[SOME REACT-DND HOOKS CODE]
+
+Concluding
