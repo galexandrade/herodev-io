@@ -10,7 +10,7 @@ Before React 16.8.0, the main way to share behaviour between your components was
 
 In this example `withSpecialPower` is adding to the component the prop `specialPower` containing a random special power (just to exemplify).
 
-_Hero.js_
+`Hero.js`
 
 ```javascript
 import React from "react";
@@ -25,7 +25,7 @@ const Hero = ({name, specialPower}) => {
 export default withSpecialPower(Hero);
 ```
 
-_withSpecialPower.js_
+`withSpecialPower.js`
 
 ```javascript
 import React from 'react';
@@ -52,13 +52,31 @@ export default withSpecialPower;
 
 [![Edit higher-order-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/sweet-cloud-bfx58?fontsize=14&hidenavigation=1&theme=dark)
 
-This pattern was used widely by a lot of libraries like Redux, Formik, \[CITE OTHERS]. However, since hooks was introduced they started using all the power hooks is giving to leverage the quality of their libraries. Let's take a look on how the code looks like using higher order components compared using hooks on some of those libraries.
+This pattern has been used widely by a lot of libraries like Redux, Formik, React-DnD and much others. However, since hooks was introduced they started using all the power hooks is giving to leverage the quality of their libraries. Let's take a look on how the code looks like using higher order components compared using hooks on some of those libraries.
 
 **Redux**
 
-Redux helps us manage the global state of the application. On this piece of code, it is giving the component \`ComponentName\` some extras props that allows the component to access some data from the store and also dispatch some action, in this case \`actionDispatched\`.
+[Redux](https://react-redux.js.org/) helps us manage the global state of the application. On the following piece of code, it is giving the component `HeroList` some extras props that allows the it to access some data from the store and also dispatch some action, in this case `callForHelp`.
 
-\[PIECE OF CODE REDUX HOC]
+```javascript
+import { connect } from 'react-redux';
+import { callForHelp } from './heroActions';
+
+const HeroList = ({ heroes, callForHelp }) => ...
+
+const mapStateToProps = (state) => {
+  return {
+    heroes: state.heroes
+  }
+}
+
+const mapDispatchToProps = { callForHelp }
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HeroList)
+```
 
 Since React Redux v7.1.0, it was added new hooks to make easier to access with the store (useSelector) and dispatch actions (useDispatch). Below you can see the same component, with the same functionality, but much more cleaner and easier to read.
 
