@@ -166,7 +166,7 @@ const MyForm = () => {
 
 See this full example [here](https://jaredpalmer.com/formik/docs/api/useFormik). Formik also provides `useField` and `useFormikContext` that can give you even more flexibility depending on the use case.
 
-React-DnD
+**React-DnD**
 
 Another good example of a library completely changed by hooks is React-DnD that helps us drag and drop elements. Before hooks, the code to to make your drag and drop the code looked like a nightmare, only who was familiar with the library could understand what was going on. 
 
@@ -187,7 +187,7 @@ function DraggableComponent(props) {
 
 Example from [React DnD documentation](https://react-dnd.github.io/react-dnd/docs/api/use-drag).
 
-Concluding
+## Concluding
 
 As we can see, hooks has been empowering React libraries world wide simplifying how we use them. What I most like, is how it improves the code readability of the components reducing boilerplate and a lot of line of code. When Dan Abramov and Ryan Florence said [hooks could turn your application up to 90% cleaner](https://www.youtube.com/watch?v=wXLf18DsV-I), I was skeptical about it, but now, when I see this massive usage of hooks I know it is totally achievable.
 
@@ -211,8 +211,6 @@ export default Hero;
 `useSpecialPower.js`
 
 ```javascript
-import React from 'react';
-
 const useSpecialPower = () => {
   const specialPowerList = [
     'be invisible',
@@ -227,4 +225,5 @@ const useSpecialPower = () => {
 
 export default useSpecialPower;
 ```
+
 [![Edit heroes-app-using-hooks](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/heroes-app-using-hooks-h7wt4?fontsize=14&hidenavigation=1&theme=dark)
