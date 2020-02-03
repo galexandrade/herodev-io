@@ -54,7 +54,7 @@ export default withSpecialPower;
 
 This pattern has been used widely by a lot of libraries like Redux, Formik, React-DnD and much others. However, since hooks was introduced they started using all the power hooks is giving to leverage the quality of their libraries. Don't get me wrong, sometimes this pattern can be very useful, specially if you need to wrap your component into something else like a Route or some Provider.
 
-Let's take a look on how the code looks like using higher order components compared using hooks on some of those libraries.
+Let's take a look on how the code looks like using higher order components compared using hooks on some of those libraries. _Just a reminder that the idea here is not to give full examples of each library nor teach how they work, but instead, compare the code before and after hooks._
 
 **Redux**
 
@@ -187,4 +187,41 @@ Example from [React DnD documentation](https://react-dnd.github.io/react-dnd/doc
 
 Concluding
 
-As we can see hooks has been empowering React libraries world wide. What I most like, is how it improves the readability of the components reducing boilerplate. It becomes easier to follow, you know your component is using .
+As we can see, hooks has been empowering React libraries world wide simplifying how we use them. What I most like, is how it improves the code readability of the components reducing boilerplate and a lot of line of code. When Dan Abramov and Ryan Florence said [hooks could turn your application up to 90% cleaner](https://www.youtube.com/watch?v=wXLf18DsV-I), I was skeptical about it, but now, when I see this massive usage of hooks I know it is totally achievable.
+
+It becomes easier to follow as well. Just by the word \`use\` you know your component is using something. Let's take a look at our first example, now, using hooks:
+`Hero.js`
+
+```javascript
+import React from "react";
+import useSpecialPower from './useSpecialPower';
+
+const Hero = ({name}) => {
+  const specialPower = useSpecialPower();
+  return (
+      <h2>{name} - I can {specialPower}</h2>
+  );
+}
+
+export default Hero;
+```
+
+`useSpecialPower.js`
+
+```javascript
+import React from 'react';
+
+const useSpecialPower = () => {
+  const specialPowerList = [
+    'be invisible',
+    'flight',
+    'see the future',
+    'read your mind'
+  ];
+  return specialPowerList[
+    Math.floor(Math.random() * specialPowerList.length)
+  ];
+};
+
+export default useSpecialPower;
+```
