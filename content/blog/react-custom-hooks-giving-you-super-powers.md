@@ -1,14 +1,14 @@
 ---
 path: react-hooks-giving-you-super-powers
 date: 2020-01-31T01:03:14.598Z
-title: How React hooks has been empowering amazing libraries
+title: React libraries empowered by hooks
 description: >-
   We will take a look on the most common libraries and how they havee been
   switching to hooks comparing how the code looks like before and after.
 ---
 Since React v16.8.0 where hooks was released it has changed the way we write our applications. If you are not familiar with React hooks (I doubt it), I highly recommend you to check it out the [official documentation](https://reactjs.org/docs/hooks-intro.html) and [Dan Abramov's talk on React Conf](https://www.youtube.com/watch?v=dpw9EHDh2bM).
 
-Before React 16.8.0, the main way to share behaviour between your components was using a pattern called [Higher Order Components (alson known as HOC)](https://reactjs.org/docs/higher-order-components.html). That approach allows you to empower your components with extra functionalities.
+Before React 16.8.0, the main way to share behaviour between components was using a pattern called [Higher Order Components (alson known as HOC)](https://reactjs.org/docs/higher-order-components.html). It consists in changing the given component to do some extra funtionalities or to pass some extra props.
 
 In this example `withSpecialPower` is adding to the component the prop `specialPower` containing a random special power (just to exemplify).
 
@@ -54,13 +54,13 @@ export default withSpecialPower;
 
 [![Edit higher-order-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/sweet-cloud-bfx58?fontsize=14&hidenavigation=1&theme=dark)
 
-This pattern has been used widely by a lot of libraries like Redux, Formik, React-DnD and much others. However, since hooks was introduced they started using all the power hooks is giving to leverage the quality of their libraries. Don't get me wrong, sometimes this pattern can be very useful, specially if you need to wrap your component into something else like a Route or some Provider.
+This pattern has been widely used by a lot of libraries like [Redux](https://react-redux.js.org/), [Formik](https://jaredpalmer.com/formik), [React-DnD](https://react-dnd.github.io/react-dnd/about) and much others. However, since hooks was introduced they started using all the power hooks is giving to leverage the quality of their libraries. Don't get me wrong, sometimes this pattern can be very useful, specially if you need to wrap your component into something else like a Route or some Provider.
 
-Let's take a look on how the code looks like using higher order components compared using hooks on some of those libraries. _Just a reminder that the idea here is not to give full examples of each library nor teach how they work, but instead, compare the code before and after hooks._
+Let's take a look on how the code looks like using higher order components compared using hooks on those libraries. _Just a reminder that the idea here is not to give full examples of each library nor teach how they work, but instead, compare the code before and after hooks._
 
 **Redux**
 
-[Redux](https://react-redux.js.org/) helps us manage the global state of the application. On the following piece of code, it is giving the component `HeroList` some extras props that allows the it to access some data from the store and also dispatch some action, in this case `callForHelp`.
+It is a labrary that helps manage the global state of the application. On the following piece of code, it is giving the component `HeroList` some extras props that allows it to access some data from the store and also dispatch some action, in this case `callForHelp`.
 
 ```javascript
 import { connect } from 'react-redux';
@@ -84,7 +84,7 @@ export default connect(
 )(HeroList)
 ```
 
-Since React Redux v7.1.0, it was added new hooks to make easier to access with the store (useSelector) and dispatch actions (useDispatch). Below you can see the same component, with the same functionality, but much more cleaner and easier to read.
+Since React Redux v7.1.0, new hooks was added to make easier to access the store (`useSelector`) and dispatch actions (`useDispatch`). Below you can see the same component, with the same functionality, but much more cleaner and easier to read.
 
 ```javascript
 import { useSelector, useDispatch } from 'react-redux';
@@ -102,7 +102,7 @@ export default HeroList;
 
 **Formik**
 
-Formik is a library that helps us manage our forms regarding to form state, validation, errors and schema definition. In the following there is an example of how we can use it to manage this form.
+This is a library that helps us manage our forms regarding to form state, validation, errors and schema definition. In the following there is an example of how we can use it to manage a simple form.
 
 ```javascript
 import React from 'react';
@@ -152,9 +152,14 @@ const MyForm = () => {
     handleSubmit,
   } = useFormik({
     initialValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
+      name: ''
+    },
+    validate: values => {
+      const errors = {};
+      if (!values.name) {
+        errors.name = 'Required';
+      }
+      return errors;
     },
     onSubmit: values => {
       console.log('Will submit', values)
