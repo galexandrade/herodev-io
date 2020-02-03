@@ -52,7 +52,7 @@ export default withSpecialPower;
 
 [![Edit higher-order-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/sweet-cloud-bfx58?fontsize=14&hidenavigation=1&theme=dark)
 
-This pattern has been used widely by a lot of libraries like Redux, Formik, React-DnD and much others. However, since hooks was introduced they started using all the power hooks is giving to leverage the quality of their libraries. Don't get me wrong, sometimes this pattern can be very usefull, specially if you need to wrap your component into something else like a Route or some Provider.
+This pattern has been used widely by a lot of libraries like Redux, Formik, React-DnD and much others. However, since hooks was introduced they started using all the power hooks is giving to leverage the quality of their libraries. Don't get me wrong, sometimes this pattern can be very useful, specially if you need to wrap your component into something else like a Route or some Provider.
 
 Let's take a look on how the code looks like using higher order components compared using hooks on some of those libraries.
 
@@ -136,17 +136,54 @@ See this full example [here](https://jaredpalmer.com/formik/docs/api/withFormik)
 
 Since Formik v2, we can use \`useFormik\` hook to do the same thing as before, but on a better and cleaner way.
 
-\[PIECE OF CODE FORMIK HOOKS]
+```javascript
+import React from 'react';
+import { useFormik } from 'formik';
+
+const MyForm = () => {
+  const {
+    values,
+    touched,
+    errors,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+  } = useFormik({
+    initialValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+    },
+    onSubmit: values => {
+      console.log('Will submit', values)
+    },
+  });
+  ...
+};
+```
+
+See this full example [here](https://jaredpalmer.com/formik/docs/api/useFormik). Formik also provides `useField` and `useFormikContext` that can give you even more flexibility depending on the use case.
 
 React-DnD
 
-Another good example of a library completely changed by hooks is React-DnD that helps us drag and drop elements. Before hooks, the code to to make your drag and drop the code looked like a nightmare, only who was familiar with the library could undeerstand what was going on. Take a look on the links under Legacy Decorator API on the React-Dnd documentation to have an idea what what I am talking about.
+Another good example of a library completely changed by hooks is React-DnD that helps us drag and drop elements. Before hooks, the code to to make your drag and drop the code looked like a nightmare, only who was familiar with the library could understand what was going on. 
 
-\[SOME OLD REACT-DND CODE]
+Take a look at [DragSource](https://react-dnd.github.io/react-dnd/docs/api/drag-source) higher order component and also [DropTarget](https://react-dnd.github.io/react-dnd/docs/api/drop-target) under Legacy Decorator API on the React-Dnd documentation to have an idea what what I am talking about.
 
-Since hooks was introduced to React-DnD it is been much easier to understande the code. \`useDrag\` and \`useDrop\` is much more readable, eve if you are not familiar with the library, you know that is doing, for instance, if a component is using \`useDrag\` you presume that component is draggable.
+Since hooks was introduced to React-DnD it is been much easier to understand the code. \`useDrag\` and \`useDrop\` is much more readable, eve if you are not familiar with the library, you know that is doing, for instance, if a component is using \`useDrag\` you presume that component is draggable.
 
-\[SOME REACT-DND HOOKS CODE]
+```javascript
+import { useDrag } from 'react-dnd';
+
+function DraggableComponent(props) {
+  const [collectedProps, drag] = useDrag({
+    item: { id, type }
+  })
+  return <div ref={drag}>...</div>;
+}
+```
+
+Example from [React DnD documentation](https://react-dnd.github.io/react-dnd/docs/api/use-drag).
 
 Concluding
 
