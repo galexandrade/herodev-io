@@ -52,7 +52,9 @@ export default withSpecialPower;
 
 [![Edit higher-order-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/sweet-cloud-bfx58?fontsize=14&hidenavigation=1&theme=dark)
 
-This pattern has been used widely by a lot of libraries like Redux, Formik, React-DnD and much others. However, since hooks was introduced they started using all the power hooks is giving to leverage the quality of their libraries. Let's take a look on how the code looks like using higher order components compared using hooks on some of those libraries.
+This pattern has been used widely by a lot of libraries like Redux, Formik, React-DnD and much others. However, since hooks was introduced they started using all the power hooks is giving to leverage the quality of their libraries. Don't get me wrong, sometimes this pattern can be very usefull, specially if you need to wrap your component into something else like a Route or some Provider.
+
+Let's take a look on how the code looks like using higher order components compared using hooks on some of those libraries.
 
 **Redux**
 
@@ -61,8 +63,8 @@ This pattern has been used widely by a lot of libraries like Redux, Formik, Reac
 ```javascript
 import { connect } from 'react-redux';
 import { callForHelp } from './heroActions';
-
-const HeroList = ({ heroes, callForHelp }) => ...
+//The component receives `heroes` and `callHero` from `connect`
+const HeroList = ({ heroes, callHero }) => ...
 
 const mapStateToProps = (state) => {
   return {
@@ -70,7 +72,9 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = { callForHelp }
+const mapDispatchToProps = dispatch => {
+  callHero: hero => dispatch(callForHelp(hero))
+}
 
 export default connect(
   mapStateToProps,
@@ -80,7 +84,19 @@ export default connect(
 
 Since React Redux v7.1.0, it was added new hooks to make easier to access with the store (useSelector) and dispatch actions (useDispatch). Below you can see the same component, with the same functionality, but much more cleaner and easier to read.
 
-\[PIECE OF CODE REDUX HOOKS]
+```javascript
+import { useSelector, useDispatch } from 'react-redux';
+import { callForHelp } from './heroActions';
+
+const HeroList = (props) => {  //The component uses a selector to get `heroes`
+  const heroes = useSelector(state => state.heroes);
+  const dispatch = useDispatch();
+  const callHero = hero => dispatch(callForHelp(hero));
+  ...
+}
+
+export default HeroList;
+```
 
 **Formik**
 
