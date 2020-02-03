@@ -1,8 +1,10 @@
 ---
-path: react-custom-hooks-giving-you-super-powers
+path: react-hooks-giving-you-super-powers
 date: 2020-01-31T01:03:14.598Z
-title: React custom hooks giving you super powers
-description: How React hooks has changed the way we share behavior on our application
+title: How React hooks has been empowering amazing libraries
+description: >-
+  We will take a look on the most common libraries and how they havee been
+  switching to hooks comparing how the code looks like before and after.
 ---
 Since React v16.8.0 where hooks was released it has changed the way we write our applications. If you are not familiar with React hooks (I doubt it), I highly recommend you to check it out the [official documentation](https://reactjs.org/docs/hooks-intro.html) and [Dan Abramov's talk on React Conf](https://www.youtube.com/watch?v=dpw9EHDh2bM).
 
