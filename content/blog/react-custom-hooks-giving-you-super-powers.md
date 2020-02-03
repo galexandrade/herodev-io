@@ -154,13 +154,6 @@ const MyForm = () => {
     initialValues: {
       name: ''
     },
-    validate: values => {
-      const errors = {};
-      if (!values.name) {
-        errors.name = 'Required';
-      }
-      return errors;
-    },
     onSubmit: values => {
       console.log('Will submit', values)
     },
@@ -173,11 +166,9 @@ See this full example [here](https://jaredpalmer.com/formik/docs/api/useFormik).
 
 **React-DnD**
 
-Another good example of a library completely changed by hooks is React-DnD that helps us drag and drop elements. Before hooks, the code to to make your drag and drop the code looked like a nightmare, only who was familiar with the library could understand what was going on. 
+Another good example of a library completely changed by hooks is React-DnD that helps us drag and drop elements. Before hooks, the code to make a drag and drop component looked like a nightmare, only who was familiar with the library could understand what was going on. Take a look at [DragSource](https://react-dnd.github.io/react-dnd/docs/api/drag-source) higher order component and also [DropTarget](https://react-dnd.github.io/react-dnd/docs/api/drop-target) under Legacy Decorator API on the React-Dnd documentation to have an idea what what I am talking about.
 
-Take a look at [DragSource](https://react-dnd.github.io/react-dnd/docs/api/drag-source) higher order component and also [DropTarget](https://react-dnd.github.io/react-dnd/docs/api/drop-target) under Legacy Decorator API on the React-Dnd documentation to have an idea what what I am talking about.
-
-Since hooks was introduced to React-DnD it is been much easier to understand the code. \`useDrag\` and \`useDrop\` is much more readable, eve if you are not familiar with the library, you know that is doing, for instance, if a component is using \`useDrag\` you presume that component is draggable.
+Since hooks was introduced to React-DnD it has been much easier to understand the code. \`useDrag\` and \`useDrop\` is much more readable, even if you are not familiar with the library, you know what it is doing, for instance, if a component is using \`useDrag\` you presume that component is draggable.
 
 ```javascript
 import { useDrag } from 'react-dnd';
@@ -194,9 +185,9 @@ Example from [React DnD documentation](https://react-dnd.github.io/react-dnd/doc
 
 ## Concluding
 
-As we can see, hooks has been empowering React libraries world wide simplifying how we use them. What I most like, is how it improves the code readability of the components reducing boilerplate and a lot of line of code. When Dan Abramov and Ryan Florence said [hooks could turn your application up to 90% cleaner](https://www.youtube.com/watch?v=wXLf18DsV-I), I was skeptical about it, but now, when I see this massive usage of hooks I know it is totally achievable.
+As we can see, hooks has been empowering React libraries world wide, simplifying how we interact with them. What I most like is, how it improves the code readability reducing boilerplate and a lot of lines of code. When Dan Abramov and Ryan Florence said [hooks could turn your application up to 90% cleaner](https://www.youtube.com/watch?v=wXLf18DsV-I), I was skeptical about it, but now, when I see this massive usage of hooks I know it is totally achievable.
 
-It becomes easier to follow as well. Just by the word \`use\` you know your component is using something. Let's take a look at our first example, now, using hooks:
+It becomes easier to follow as well. Just by the word \`use\` you know the component is "using" something. Let's take a look at our first example, now, using hooks:
 `Hero.js`
 
 ```javascript
