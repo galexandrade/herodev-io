@@ -100,9 +100,39 @@ export default HeroList;
 
 **Formik**
 
-Formik is a library that helps us manage our forms regarding to form state, validation, errors and schema. In the following there is an example of how we can use it to manage this form.
+Formik is a library that helps us manage our forms regarding to form state, validation, errors and schema definition. In the following there is an example of how we can use it to manage this form.
 
-\[PIECE OF CODE FORMIK]
+```javascript
+import React from 'react';
+import { withFormik } from 'formik';
+
+//The component receives all these props from `withFormik`
+const MyForm = ({
+    values,
+    touched,
+    errors,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+  }) => ...;
+
+const MyEnhancedForm = withFormik({
+  mapPropsToValues: () => ({ name: '' }),
+  // Custom sync validation
+  validate: values => {
+    const errors = {};
+    if (!values.name) {
+      errors.name = 'Required';
+    }
+    return errors;
+  },
+  handleSubmit: values => {
+    console.log('Will submit', values)
+  }
+})(MyForm);
+```
+
+See this full example [here](https://jaredpalmer.com/formik/docs/api/withFormik).
 
 Since Formik v2, we can use \`useFormik\` hook to do the same thing as before, but on a better and cleaner way.
 
