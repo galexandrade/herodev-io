@@ -39,7 +39,7 @@ export default withSpecialPower(Hero);
 import React from 'react';
 
 const withSpecialPower = (Component) => {
-  return class WithHover extends React.Component {
+  return class Wrapper extends React.Component {
     render() {
       const specialPowerList = [
         'be invisible',
