@@ -3,9 +3,11 @@ path: react-hooks-giving-you-super-powers
 date: 2020-01-31T01:03:14.598Z
 title: React libraries being empowered by hooks
 description: >-
-  We will take a look on the most common libraries and how they havee been
+  We will take a look on the most common libraries and how they have been
   switching to hooks comparing how the code looks like before and after.
 ---
+We will take a look on the most common libraries and how they have been switching to hooks comparing how the code looks like before and after.
+
 ![Powerful hooks](/assets/hooks.jpg "Powerful hooks")
 
 _\-Image by Leticia Andrade-_
