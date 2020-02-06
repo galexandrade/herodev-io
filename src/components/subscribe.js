@@ -10,11 +10,11 @@ import addToMailchimp from "gatsby-plugin-mailchimp"
 
 function Subscribe() {
   const [isSubscribing, setIsSubscribing] = useState(false)
-  const [firstName, setFirstName] = useState("")
-  const [email, setEmail] = useState("")
   const [subscription, setSubscription] = useState(null)
 
   const handleSubmit = e => {
+    const firstName = e.target.elements.firstname.value
+    const email = e.target.elements.email.value
     e.preventDefault()
     if (isSubscribing) {
       return
@@ -23,7 +23,6 @@ function Subscribe() {
     addToMailchimp(email, {
       FNAME: firstName,
     }).then(result => {
-      console.log(result)
       setIsSubscribing(false)
       setSubscription(result)
     })
@@ -36,17 +35,8 @@ function Subscribe() {
         name="firstname"
         placeholder="Your first name"
         required
-        value={firstName}
-        onChange={e => setFirstName(e.target.value)}
       />
-      <Input
-        type="email"
-        name="email"
-        placeholder="Your email"
-        required
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-      />
+      <Input type="email" name="email" placeholder="Your email" required />
       {subscription && subscription.result === "error" && (
         <p
           style={{ fontSize: 12, marginBottom: 15, color: "red" }}
