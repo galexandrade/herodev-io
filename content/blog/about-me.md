@@ -8,7 +8,7 @@ Hi, my name is Alex Andrade!
 
 I am currently living in [Saskatoon, Canada, the land of living skies](https://www.instagram.com/visitsaskatoon/), where I moved from Brazil to embrace new challenges at [7shifts](https://www.7shifts.com/) in 2019. Here, every single day, we build something great to empower restaurants with amazing solutions, so managers can focus their time on their business. 
 
-If you are passionate about solving hard problems, this might bee a good place for you as well.
+If you are passionate about solving hard problems, this might be a good place for you as well.
 
 ![Me at 7shifts Saskatoon office](/assets/7shifts-office.jpg "Me at 7shifts Saskatoon office")
 
