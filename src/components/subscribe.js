@@ -74,17 +74,19 @@ function Subscribe() {
         return (
           <Container>
             <Row style={{ backgroundColor: "#F9FAFB" }}>
-              <h3 style={{ marginTop: 0 }}>Subscribe to the Newsletter</h3>
-              <p>Subscribe to get my latest content by email.</p>
-              <Image
-                fixed={data.emailIcon.childImageSharp.fixed}
-                alt="Email icon"
-                style={{
-                  marginRight: rhythm(1 / 2),
-                  marginBottom: 0,
-                  minWidth: 50,
-                }}
-              />
+              <H3>Subscribe to the Newsletter</H3>
+              <SubscribeText>
+                <p>Subscribe to get my latest content by email.</p>
+                <Image
+                  fixed={data.emailIcon.childImageSharp.fixed}
+                  alt="Email icon"
+                  style={{
+                    marginRight: rhythm(1 / 2),
+                    marginBottom: 0,
+                    minWidth: 50,
+                  }}
+                />
+              </SubscribeText>
             </Row>
             <Row>
               {subscription && subscription.result === "success" ? (
@@ -105,6 +107,9 @@ const Container = styled.div`
   flex: 1;
   box-shadow: 0 2px 15px 0 rgba(210, 214, 220, 0.5);
   margin-bottom: 30px;
+  @media (max-width: 550px) {
+    flex-direction: column;
+  }
 `
 
 const Row = styled.div`
@@ -115,6 +120,7 @@ const Row = styled.div`
 const Input = styled.input`
   padding: 10px;
   margin-bottom: 20px;
+  width: 100%;
 `
 
 const bioQuery = graphql`
@@ -126,6 +132,19 @@ const bioQuery = graphql`
         }
       }
     }
+  }
+`
+
+const SubscribeText = styled.div`
+  @media (max-width: 550px) {
+    display: none;
+  }
+`
+
+const H3 = styled.h3`
+  margin-top: 0;
+  @media (max-width: 550px) {
+    margin-bottom: 0;
   }
 `
 

@@ -27,10 +27,10 @@ class IndexPage extends React.Component {
           All of us, devs, master superpowers. A lot of times we save the day
           solving hard problems with code, but we forget others might face the
           same problem as well and we can empower them with the same solution.
-          The goal here is to share great content with the dev comunity that can
-          help you on your hero journey.
+          The goal here is to share great content with the dev community that
+          can help you on your hero journey.
         </p>
-        <p>Lets save the day with code!</p>
+        <p>Let's save the day with code!</p>
         <Link to="/blog/">
           <Button marginTop="35px">Go to Blog</Button>
         </Link>

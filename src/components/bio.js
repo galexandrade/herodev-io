@@ -6,7 +6,7 @@
  */
 
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 import styled from "styled-components"
 
@@ -35,11 +35,7 @@ function Bio() {
             />
             <p style={{ marginBottom: 0 }}>
               Personal blog by {` `}
-              <strong>
-                <a href={`https://www.linkedin.com/in/${social.twitter}`}>
-                  {author}
-                </a>
-              </strong>
+              <Link to="blog/about-me">{author}</Link>
               .
               <br />
               Saving the day with code.

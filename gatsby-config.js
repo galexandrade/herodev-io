@@ -4,7 +4,7 @@ module.exports = {
     title: `Hero Dev`,
     author: `Alex Andrade`,
     description: `Saving the day with code.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    siteUrl: `https://herodev.io/`,
     social: {
       twitter: `palexandrade`,
     },
@@ -64,7 +64,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // edit below
-        // trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-157824840-1`,
       },
     },
     {
