@@ -3,11 +3,11 @@ path: react-hooks-giving-you-super-powers
 date: 2020-01-31T01:03:14.598Z
 title: React libraries being empowered by hooks
 description: >-
-  We will take a look at some of the the most common libraries, seeing how they
+  We will take a look at some of the most common libraries, seeing how they
   switched to using hooks, comparing what the code looked like before and after
   the switch.
 ---
-We will take a look at some of the the most common libraries, seeing how they switched to using hooks, comparing what the code looked like before and after the switch.
+We will take a look at some of the most common libraries, seeing how they switched to using hooks, comparing what the code looked like before and after the switch.
 
 ![Powerful hooks](/assets/hooks.jpg "Powerful hooks")
 
@@ -15,7 +15,7 @@ _\-Image by Leticia Andrade-_
 
 Since the release of hooks with React v16.8.0, the way we write our applications has changed. If you are not familiar with React hooks (I doubt it), I highly recommend you to check it out the [official documentation](https://reactjs.org/docs/hooks-intro.html) and [Dan Abramov's talk on React Conf](https://www.youtube.com/watch?v=dpw9EHDh2bM).
 
-Before React 16.8.0, the main way to share behaviour between components was using a pattern called [Higher Order Components (alson known as HOC)](https://reactjs.org/docs/higher-order-components.html). It consists in changing the given component to have some extra functionality or to pass some extra props.
+Before React 16.8.0, the main way to share behavior between components was using a pattern called [Higher Order Components (also known as HOC)](https://reactjs.org/docs/higher-order-components.html). It consists of changing the given component to have some extra functionality or to pass some extra props.
 
 In this example, `withSpecialPower` adds `specialPower` to the component, which contains a random special power (just to exemplify).
 
@@ -63,11 +63,11 @@ export default withSpecialPower;
 
 This pattern has been widely used by a lot of libraries like [Redux](https://react-redux.js.org/), [Formik](https://jaredpalmer.com/formik), [React-DnD](https://react-dnd.github.io/react-dnd/about) and many others. However, since React v16.8.0, many of these libraries have started leveraging the power of hooks to improve the quality of their libraries. Don't get me wrong, sometimes this pattern can be very useful, especially if you need to wrap your component into something else like a Route or some Provider.
 
-Let's take a look on how the code looks like using higher order components compared using hooks on those libraries. _Just a reminder that the idea here is not to give full examples of each library nor teach how they work, but instead, compare the code before and after hooks._
+Let's take a look at how the code looks like using higher order components compared using hooks on those libraries. _Just a reminder that the idea here is not to give full examples of each library nor teach how they work, but instead, compare the code before and after hooks._
 
 **Redux**
 
-It is a library that helps manage the global state of the application. On the following piece of code, it is giving the component `HeroList` some extras props that allows it to access some data from the store and also dispatch some action, in this case `callForHelp`.
+It is a library that helps manage the global state of the application. On the following piece of code, it is giving the component `HeroList` some extras props that allow it to access some data from the store and also dispatch some action, in this case, `callForHelp`.
 
 ```javascript
 import { connect } from 'react-redux';
@@ -91,7 +91,7 @@ export default connect(
 )(HeroList)
 ```
 
-Since React Redux v7.1.0, new hooks was added to make easier to access the store (`useSelector`) and dispatch actions (`useDispatch`). Below you can see the same component, with the same functionality, but much more cleaner and easier to read.
+Since React Redux v7.1.0, new hooks were added to make easier to access the store (`useSelector`) and dispatch actions (`useDispatch`). Below you can see the same component, with the same functionality, but much cleaner and easier to read.
 
 ```javascript
 import { useSelector, useDispatch } from 'react-redux';
@@ -109,7 +109,7 @@ export default HeroList;
 
 **Formik**
 
-This is a library that helps us manage certain aspects of forms such as state, validation, errors and schema definition. The following example shows how we can use it to manage a simple form.
+This is a library that helps us manage certain aspects of forms such as state, validation, errors, and schema definition. The following example shows how we can use it to manage a simple form.
 
 ```javascript
 import React from 'react';
@@ -143,7 +143,7 @@ const MyEnhancedForm = withFormik({
 
 See this full example [here](https://jaredpalmer.com/formik/docs/api/withFormik).
 
-Since Formik v2, we can use \`useFormik\` hook to do the same thing as before, but on a better and cleaner way.
+Since Formik v2, we can use \`useFormik\` hook to do the same thing as before, but in a better and cleaner way.
 
 ```javascript
 import React from 'react';
@@ -173,9 +173,9 @@ See this full example [here](https://jaredpalmer.com/formik/docs/api/useFormik).
 
 **React-DnD**
 
-Another good example of a library completely changed by hooks is React-DnD. React-DnD is a library that helps us drag and drop elements. Before hooks, the code to make a drag and drop component looked like a nightmare. Only people who were familiar with the library could understand what was going on. Take a look at [DragSource](https://react-dnd.github.io/react-dnd/docs/api/drag-source) higher order component and also [DropTarget](https://react-dnd.github.io/react-dnd/docs/api/drop-target) under Legacy Decorator API on the React-Dnd documentation to have an idea what what I am talking about.
+Another good example of a library completely changed by hooks is React-DnD. React-DnD is a library that helps us drag and drop elements. Before hooks, the code to make a drag and drop component looked like a nightmare. Only people who were familiar with the library could understand what was going on. Take a look at [DragSource](https://react-dnd.github.io/react-dnd/docs/api/drag-source) higher order component and also [DropTarget](https://react-dnd.github.io/react-dnd/docs/api/drop-target) under Legacy Decorator API on the React-Dnd documentation to have an idea of what I am talking about.
 
-Since hooks was introduced to React-DnD it has been much easier to understand the code. \`useDrag\` and \`useDrop\` is much more readable, even if you are not familiar with the library, you know what it is doing, for instance, if a component is using \`useDrag\` you presume that component is draggable.
+Since hooks were introduced to React-DnD it has been much easier to understand the code. \`useDrag\` and \`useDrop\` is much more readable, even if you are not familiar with the library, you know what it is doing, for instance, if a component is using \`useDrag\` you presume that component is draggable.
 
 ```javascript
 import { useDrag } from 'react-dnd';
@@ -192,7 +192,7 @@ Example from [React DnD documentation](https://react-dnd.github.io/react-dnd/doc
 
 ## Concluding
 
-As we can see, hooks has been empowering React libraries world wide, simplifying how we interact with them. What I most like is, how it improves the code readability reducing boilerplate and a lot of lines of code. When Dan Abramov and Ryan Florence said [hooks could turn your application up to 90% cleaner](https://www.youtube.com/watch?v=wXLf18DsV-I), I was skeptical about it, but now, when I see this massive usage of hooks I know it is totally achievable.
+As we can see, hooks have been empowering React libraries worldwide, simplifying how we interact with them. What I most like is, how it improves the code readability reducing boilerplate and a lot of lines of code. When Dan Abramov and Ryan Florence said [hooks could turn your application up to 90% cleaner](https://www.youtube.com/watch?v=wXLf18DsV-I), I was skeptical about it, but now, when I see this massive usage of hooks I know it is totally achievable.
 
 It becomes easier to follow as well. Just by the word \`use\` you know the component is "using" something. Let's take a look at our first example, now, using hooks:
 `Hero.js`
