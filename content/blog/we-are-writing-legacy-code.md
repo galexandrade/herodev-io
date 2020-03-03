@@ -135,8 +135,32 @@ Dealing with technology changes
 
 There are three possible ways of dealing with a huge technology change, for example from a server rendered app to a React App:
 
-1. Keep maintaining/adding features the existing one
-2. Rewrite it from scratch
-3. Progressively rewrite
+**Keep maintaining/adding features the existing one**
 
-Some,
+If your app is not a huge one and improving the app and adding features is not an issue with the current stack, chances are you don't need to change the technology you are using currently.
+
+**Rewrite it from scratch**
+
+If you cannot improve your app or adding the features your customers want takes a lot of time or maybe it is not even possible, rewrite from scratch might be an option.
+
+Rewriting from scratch means you will throw away your current app and replace with the new one. If your app is a small one and you can keep maintaining the current one while rewriting the new one, this could be a good approach for you. But if you app is large, or it has years of knowledge applied thought code on it, I don't recommend this approach.
+
+**Progressively rewrite**
+
+This approach means you are going to keep the current app, progressively moving towards the new approach. You can start moving one page to React, for example, while all the others still uses the old approach.
+
+Chances are this is the option you will choose if your app is a large one.
+
+As we just saw, we are writing legacy code all the time, it does not matter if this is the top technology of the moment, it becomes legacy code as soon as shipped into production. 
+
+With that in mind, what really is leaving behind a good code, so we/our coworkers can look back and understand what is going on.
+
+There is just one rule to rule everything:
+
+![KISS - Keep It Simple Stupid](/assets/kiss.png "KISS - Keep It Simple Stupid")
+
+Keeping it simple can be really hard, though. It is not the scope of this article to cover how to keep your code simple, as this could be a whole new article, but simple actions can help your code to be clear, for example:
+
+* Name file, variables, functions, components appropriately;
+* Have a sense of when to break your component into multiple components;
+* Always cover you code with tests (static code analysis, unit tests, integration tests, E2E tests)
