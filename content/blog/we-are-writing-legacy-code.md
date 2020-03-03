@@ -170,7 +170,7 @@ There is just one rule to rule everything, it is called KISS:
 
 ![KISS - Keep It Simple Stupid](/assets/kiss.png "KISS - Keep It Simple Stupid")
 
-Keeping it simple can be really hard, though. It is not the scope of this article to cover how to keep your code simple, as this could take a whole new article, but simple actions can help your code to be clear, for example:
+Keeping it simple can be hard, though. It is not the scope of this article to cover how to keep your code simple, as this could take a whole new article, but simple actions can help your code to be clear, for example:
 
 * [Name file, variables, functions, components appropriately;](https://www.robinwieruch.de/javascript-naming-conventions)
 * [Have a sense of when to break your component into multiple components;](https://kentcdodds.com/blog/when-to-break-up-a-component-into-multiple-components)
