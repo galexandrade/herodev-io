@@ -4,7 +4,7 @@ date: 2020-03-03T15:23:43.280Z
 title: We are writing legacy code
 description: >-
   Technology is in continuous evolution and that makes the code we write today
-  the one we are going to rewrite tomorrow
+  the one we are going to rewrite tomorrow.
 ---
 If you have more than 5 years of experience working with frontend, probably you have worked with many different technologies (server render web app, plain javascript, JQuery, React, Angular, Vue) or a mix of them for doing the same thing, render a web page.
 
