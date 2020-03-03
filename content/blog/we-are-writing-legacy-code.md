@@ -21,7 +21,7 @@ _Server rendering_
 
 Let's suppose the best approach at the moment to do that is through server rendering, for example PHP. Considering \`$heroes\` is coming from a database, the following code is iterating them and generating the output HTML that is going to be returned to the browser.
 
-```
+```php
 <ul>
 <?php foreach ($heroes as $hero): ?>
    <li><?= $hero->name ?></li>
@@ -29,11 +29,11 @@ Let's suppose the best approach at the moment to do that is through server rende
 </ul>
 ```
 
-JQuery
+_JQuery_
 
 Now we have our app server rendered, but we want more flexibility on the front site end, so we found out that JQuery is on its boom and can solve our problems. So, here we go to rewrite our amazing app to use JQuery.
 
-```
+```javascript
 <ul id="heroes-list"></ul>
 <script>
    $(document).ready(function() {
@@ -49,3 +49,94 @@ Now we have our app server rendered, but we want more flexibility on the front s
 [![Edit JQuery Ajax](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/jquery-ajax-lyqly?fontsize=14&hidenavigation=1&theme=dark)
 
 The code above is getting the data from the server (imagine \`heroes.json\` as a rest api) and appending each hero to the DOM inside \`heroes-list\` div.
+
+_React_
+
+As our product and team grows, we realized that JQuery doesn't help much for scale, as it requires a lot of effort to maintain and add new functionalities, as routes for instance. So, we realized that some great Javascript frameworks is emerging like Angular, Vue, React and they offer great flexibility to work with frontend making it easier for scale as there is a ton of libraries we can just add to our project according to our needs. Here we go to rewrite our application to React (just for example):
+
+```javascript
+import React, { Component } from "react";
+import { fetchHeroes } from "./api";
+import "./styles.css";
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      heroes: []
+    };
+  }
+
+  componentDidMount() {
+    fetchHeroes().then(data => {
+      this.setState({
+        heroes: data
+      });
+    });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <ul>
+          {this.state.heroes.map(hero => (
+            <li key={hero}>{hero}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+}
+export default App;
+```
+
+[![Edit React Fetch Heroes - full lifecycle](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-fetch-heroes-59u61?fontsize=14&hidenavigation=1&theme=dark)
+
+The code above is fetching the data from the server once the component was loaded and rendering the list.
+
+Some time later a \`hooks\` as added to React improving a log the way our apps is written. We started using it and soon we updated to use hooks:
+
+```javascript
+import React, { useState, useEffect } from "react";
+import { fetchHeroes } from "./api";
+import "./styles.css";
+
+const App = () => {
+  const [heroes, setHeroes] = useState([]);
+
+  useEffect(() => {
+    fetchHeroes().then(data => setHeroes(data));
+  }, [setHeroes]);
+
+  return (
+    <div className="App">
+      <ul>
+        {heroes.map(hero => (
+          <li key={hero}>{hero}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+export default App;
+```
+
+[![Edit React Fetch Heroes](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-fetch-heroes-jb1of?fontsize=14&hidenavigation=1&theme=dark)
+
+
+
+All the examples above renders just a simple list of heroes, but in practice it cold be much bigger with a lot of functionalities and features and that means changing to a new technology or approach can take a lot of time and planning.
+
+As we can see with this simple app, we are always writing code that, somehow, is going to be rewritten later. So we can assume:
+
+> "A code becomes LEGACY CODE as soon as shipped into production!"
+
+Dealing with technology changes
+
+There are three possible ways of dealing with a huge technology change, for example from a server rendered app to a React App:
+
+1. Keep maintaining/adding features the existing one
+2. Rewrite it from scratch
+3. Progressively rewrite
+
+Some,
