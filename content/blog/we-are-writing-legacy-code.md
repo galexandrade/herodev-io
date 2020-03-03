@@ -10,16 +10,19 @@ If you have more than 5 years of experience working with frontend, probably you 
 
 Let's take a look on how approaches changes throughout the years. 
 
-Consider we have our web app that does a lot of cool things, one of the features is to show up a list of heroes. All the following code examples will render a heroes list, exactly like the following:
+## The startup tale
 
-* Spiderman
-* Hulk
-* Black Phanter
-* Doctor Strange
+No one start a new business or a new startup project with some old or deprecated technology, everyone choose the top technologies of the moment that the team has knowledge.
+
+Consider we are building our new startup back to 2005. Our app that does a lot of cool things, one of the features is to show up a list of heroes, like the following:
+
+![Heroes list](/assets/heroes-list.png "Heroes list")
 
 _Server rendering_
 
-Let's suppose the best approach at the moment to do that is through server rendering, for example PHP. Considering \`$heroes\` is coming from a database, the following code is iterating them and generating the output HTML that is going to be returned to the browser.
+At that time PHP was the one, and we could render our pages on the server easily, so this was our choice to start our company.
+
+Considering \`$heroes\` is coming from a database, the following code is iterating them and generating the output HTML that is going to be returned to the browser.
 
 ```php
 <ul>
@@ -29,9 +32,11 @@ Let's suppose the best approach at the moment to do that is through server rende
 </ul>
 ```
 
+Now we have our app server rendered working fine in production.
+
 _JQuery_
 
-Now we have our app server rendered, but we want more flexibility on the front site end, so we found out that JQuery is on its boom and can solve our problems. So, here we go to rewrite our amazing app to use JQuery.
+As the time goes, we want more flexibility on the front site, so we looked around and discovered that JQuery is on its boom and it fit our needs. So, here we go to rewrite our amazing app to use JQuery:
 
 ```javascript
 <ul id="heroes-list"></ul>
@@ -52,7 +57,7 @@ The code above is getting the data from the server (imagine \`heroes.json\` as a
 
 _React_
 
-As our product and team grows, we realized that JQuery doesn't help much for scale, as it requires a lot of effort to maintain and add new functionalities, as routes for instance. So, we realized that some great Javascript frameworks is emerging like Angular, Vue, React and they offer great flexibility to work with frontend making it easier for scale as there is a ton of libraries we can just add to our project according to our needs. Here we go to rewrite our application to React (just for example):
+As our product and team grows, we realized that JQuery doesn't help much for scale, as it requires a lot of effort to maintain and add new functionalities, as routes for instance. So, we realized that some great Javascript frameworks is taking place like Angular, Vue, React and they offer great flexibility to work with frontend making it easier for scale as there is a ton of libraries we can just add to our project according to our needs. Here we go to rewrite our application to React, the one chosen:
 
 ```javascript
 import React, { Component } from "react";
@@ -94,7 +99,7 @@ export default App;
 
 The code above is fetching the data from the server once the component was loaded and rendering the list.
 
-Some time later a \`hooks\` as added to React improving a log the way our apps is written. We started using it and soon we updated to use hooks:
+Some time later \`hooks\` as added to React improving a lot the way our apps are written. We started using it and soon we updated it to use hooks:
 
 ```javascript
 import React, { useState, useEffect } from "react";
@@ -125,13 +130,17 @@ export default App;
 
 
 
+On our startup study case, we are always rewriting to something newer as the time goes. The las one is React, but we don't know what is going to take place in the near future, maybe Svelte, or Polymer or maybe Web Assembly? Who knows.
+
+## What is Legacy Code
+
 All the examples above renders just a simple list of heroes, but in practice it cold be much bigger with a lot of functionalities and features and that means changing to a new technology or approach can take a lot of time and planning.
 
 As we can see with this simple app, we are always writing code that, somehow, is going to be rewritten later. So we can assume:
 
 > "A code becomes LEGACY CODE as soon as shipped into production!"
 
-Dealing with technology changes
+## Dealing with technology changes
 
 There are three possible ways of dealing with a huge technology change, for example from a server rendered app to a React App:
 
@@ -150,6 +159,8 @@ Rewriting from scratch means you will throw away your current app and replace wi
 This approach means you are going to keep the current app, progressively moving towards the new approach. You can start moving one page to React, for example, while all the others still uses the old approach.
 
 Chances are this is the option you will choose if your app is a large one.
+
+## Leaving behind a good legacy code
 
 As we just saw, we are writing legacy code all the time, it does not matter if this is the top technology of the moment, it becomes legacy code as soon as shipped into production. 
 
