@@ -18,7 +18,7 @@ Consider we are building our new startup back to 2005. Our app does a lot of coo
 
 ![Heroes list](/assets/heroes-list.png "Heroes list")
 
-_**Server rendering**_
+**_Server rendering_**
 
 At that time PHP was the one, and we could render our pages on the server easily, so this was our choice to start our project.
 
@@ -34,7 +34,7 @@ Considering \`$heroes\` is coming from a database, the following code is iterati
 
 Now we have our app server rendered working fine in production.
 
-_**JQuery**_
+**_JQuery_**
 
 As time goes, we want more flexibility on the front end side, so we looked around and discovered that JQuery is on its boom and it fits our needs. So, here we go to rewrite our amazing app to use JQuery:
 
@@ -55,7 +55,7 @@ As time goes, we want more flexibility on the front end side, so we looked aroun
 
 The code above is getting the data from the server (imagine \`heroes.json\` as a Rest API) and appending each hero to the DOM inside the \`heroes-list\` div.
 
-_**React**_
+**_React_**
 
 As our product grows as well as our team, we realized that JQuery doesn't help much for scale. Adding routes, for example, requires a lot of effort as well as to maintain the codebase and adding new functionalities. So, we realized that some great Javascript frameworks are taking place like Angular, Vue, React offering great flexibility to work with frontend making it easier for scale as there is a ton of libraries we can just add to our project according to our needs.
 
@@ -130,7 +130,7 @@ export default App;
 
 [![Edit React Fetch Heroes](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-fetch-heroes-jb1of?fontsize=14&hidenavigation=1&theme=dark)
 
-In our startup study case, we are always rewriting to something newer as the time goes. The last one is written in React, but we don't certainly know what is going to take place in the coming years, maybe Svelte, or Polymer or maybe Web Assembly? Who knows.
+In our startup study case, we are always rewriting to something newer as the time goes. The last one is written in React, but we don't certainly know what is going to take place in the coming years, maybe [Svelte](https://svelte.dev/), or [Polymer](https://www.polymer-project.org/) or maybe [Web Assembly](https://webassembly.org/)? Who knows.
 
 ## What is Legacy Code
 
@@ -175,3 +175,12 @@ Keeping it simple can be hard, though. It is not the scope of this article to co
 * [Name file, variables, functions, components appropriately;](https://www.robinwieruch.de/javascript-naming-conventions)
 * [Have a sense of when to break your component into multiple components;](https://kentcdodds.com/blog/when-to-break-up-a-component-into-multiple-components)
 * Always cover your code with tests ([static code analysis, unit tests, integration tests, E2E tests](https://kentcdodds.com/blog/unit-vs-integration-vs-e2e-tests))
+
+The main point is:
+
+> "Any fool can write code that a computer can understand. Good programmers write code that humans can understand
+>
+> \
+>
+>
+> - Martin Fowler
