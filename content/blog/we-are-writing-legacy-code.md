@@ -6,7 +6,9 @@ description: >-
   Technology is in continuous evolution and that makes the code we write today
   the one we are going to rewrite tomorrow.
 ---
-If you have more than 5 years of experience working with frontend, probably you have worked with many different technologies (server render web app, plain javascript, JQuery, React, Angular, Vue) or a mix of them for doing the same thing, render a web page.
+If you have some years of experience working with frontend, probably you have worked with many different technologies (server render web app, plain javascript, JQuery, React, Angular, Vue) or a mix of them for doing the same thing, render a web page.
+
+We need to keep in mind that _technology is in continuous changing._
 
 Let's take a look at how approaches change throughout the years. 
 
@@ -18,7 +20,7 @@ Consider we are building our new startup back to 2005. Our app does a lot of coo
 
 ![Heroes list](/assets/heroes-list.png "Heroes list")
 
-**_Server rendering_**
+_**Server rendering**_
 
 At that time PHP was the one, and we could render our pages on the server easily, so this was our choice to start our project.
 
@@ -34,7 +36,7 @@ Considering \`$heroes\` is coming from a database, the following code is iterati
 
 Now we have our app server rendered working fine in production.
 
-**_JQuery_**
+_**JQuery**_
 
 As time goes, we want more flexibility on the front end side, so we looked around and discovered that JQuery is on its boom and it fits our needs. So, here we go to rewrite our amazing app to use JQuery:
 
@@ -55,7 +57,7 @@ As time goes, we want more flexibility on the front end side, so we looked aroun
 
 The code above is getting the data from the server (imagine \`heroes.json\` as a Rest API) and appending each hero to the DOM inside the \`heroes-list\` div.
 
-**_React_**
+_**React**_
 
 As our product grows as well as our team, we realized that JQuery doesn't help much for scale. Adding routes, for example, requires a lot of effort as well as to maintain the codebase and adding new functionalities. So, we realized that some great Javascript frameworks are taking place like Angular, Vue, React offering great flexibility to work with frontend making it easier for scale as there is a ton of libraries we can just add to our project according to our needs.
 
@@ -182,5 +184,4 @@ The main point is:
 >
 > \
 >
->
-> - Martin Fowler
+> * Martin Fowler
