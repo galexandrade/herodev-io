@@ -22,7 +22,7 @@ Consider we are building our new startup back to 2005. Our app does a lot of coo
 
 _**Server rendering**_
 
-At that time PHP was the one, and we could render our pages on the server easily, so this was our choice to start our project.
+At that time PHP was the one, and we can render our pages on the server easily, so this was our choice to start our project.
 
 Considering \`$heroes\` is coming from a database, the following code is iterating them and generating the output HTML that is going to be returned to the browser.
 
@@ -38,7 +38,7 @@ Now we have our app server rendered working fine in production.
 
 _**JQuery**_
 
-As time goes, we want more flexibility on the front end side, so we looked around and discovered that JQuery is on its boom and it fits our needs. So, here we go to rewrite our amazing app to use JQuery:
+As time goes, we want more flexibility on the front end side, so we looked around and found out that JQuery is on its boom and it fits our needs. So, here we go to rewrite our amazing app to use JQuery:
 
 ```javascript
 <ul id="heroes-list"></ul>
