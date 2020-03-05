@@ -138,7 +138,7 @@ In our startup study case, we are always rewriting to something newer as the tim
 
 All the examples above render just a simple list of heroes, but in practice, it could be much bigger with a lot of functionalities and features and that means changing to a technology or approach can take a lot of time and planning.
 
-As we can see with this simple app, we are always writing code that, somehow, is going to be rewritten later. So we can assume:
+As we can see with this simple startup tale, we are always writing code that, somehow, is going to be rewritten later. So we can assume:
 
 > A code becomes LEGACY CODE as soon as shipped into production!
 
@@ -180,8 +180,6 @@ Keeping it simple can be hard, though. It is not the scope of this article to co
 
 The main point is:
 
-> "Any fool can write code that a computer can understand. Good programmers write code that humans can understand
+> "Any fool can write code that a computer can understand. Good programmers write code that humans can understand"
 >
-> \
->
-> * Martin Fowler
+> Martin Fowler
