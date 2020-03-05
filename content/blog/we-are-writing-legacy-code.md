@@ -8,9 +8,9 @@ description: >-
 ---
 If you have some years of experience working with frontend, probably you have worked with many different technologies (server render web app, plain javascript, JQuery, React, Angular, Vue) or a mix of them for doing the same thing, render a web page.
 
-We need to keep in mind that _technology is in continuous changing._
+We need to keep in mind that _technology is in continuous evolution._
 
-Let's take a look at how approaches change throughout the years. 
+Let's take a look at how the way we use to build software might change throughout the years. 
 
 ## The startup tale
 
@@ -20,11 +20,11 @@ Consider we are building our new startup back to 2005. Our app does a lot of coo
 
 ![Heroes list](/assets/heroes-list.png "Heroes list")
 
-_**Server rendering**_
+**_Server rendering_**
 
-At that time PHP was the one, and we can render our pages on the server easily, so this was our choice to start our project.
+At that time PHP was the one, and we can render our pages on the server easily, so this was our choice to start our new promising project.
 
-Considering \`$heroes\` is coming from a database, the following code is iterating them and generating the output HTML that is going to be returned to the browser.
+Considering `$heroes` is coming from a database, the following code is iterating on them and generating the output as HTML that is going to be returned to the browser.
 
 ```php
 <ul>
@@ -36,7 +36,7 @@ Considering \`$heroes\` is coming from a database, the following code is iterati
 
 Now we have our app server rendered working fine in production.
 
-_**JQuery**_
+**_JQuery_**
 
 As time goes, we want more flexibility on the front end side, so we looked around and found out that JQuery is on its boom and it fits our needs. So, here we go to rewrite our amazing app to use JQuery:
 
@@ -55,11 +55,11 @@ As time goes, we want more flexibility on the front end side, so we looked aroun
 
 [![Edit JQuery Ajax](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/jquery-ajax-lyqly?fontsize=14&hidenavigation=1&theme=dark)
 
-The code above is getting the data from the server (imagine \`heroes.json\` as a Rest API) and appending each hero to the DOM inside the \`heroes-list\` div.
+The code above is getting the data from the server (imagine `heroes.json` as a Rest API) and appending each hero to the DOM inside the `heroes-list` div.
 
-_**React**_
+**_React_**
 
-As our product grows as well as our team, we realized that JQuery doesn't help much for scale. Adding routes, for example, requires a lot of effort as well as to maintain the codebase and adding new functionalities. So, we realized that some great Javascript frameworks are taking place like Angular, Vue, React offering great flexibility to work with frontend making it easier for scale as there is a ton of libraries we can just add to our project according to our needs.
+As our product grows as well as our team, we realized that JQuery doesn't help much for scale. Adding routes, for example, requires a lot of effort as well as to maintain the code-base and adding new functionalities. So, we realized that some great Javascript frameworks are taking place like [Angular](https://angular.io/), [Vue](https://vuejs.org/), [React](https://reactjs.org/) offering great flexibility to work with front-end making it easier for scale as there is a ton of libraries we can just add to our project according to our needs.
 
 Here we go to rewrite our application to React, the one chosen:
 
@@ -103,7 +103,7 @@ export default App;
 
 The code above is fetching the data from the server once the component was loaded and rendering the list.
 
-Sometime later, \`hooks\` was added to React improving a lot the way our apps are written. We started using it and soon we updated it to use hooks:
+Sometime later, `hooks` was added to React improving a lot the way our apps are written. We started using it and soon we updated it to use hooks:
 
 ```javascript
 import React, { useState, useEffect } from "react";
