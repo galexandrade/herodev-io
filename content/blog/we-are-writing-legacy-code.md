@@ -18,13 +18,13 @@ Let's take a look at how the way we use to build software might change throughou
 
 No one wants to start a new business or project with old or deprecated technology, and everybody tries to choose current bleeding edge technologies that the team knows how to use.
 
-Consider we are building our new startup back to 2005. Our app does a lot of cool things, one of them is to show a list of heroes, like the following:
+Let’s say that we are building our new startup back in 2005. Our app does a lot of cool things. One of them is to show a list of heroes that looks like this:
 
 ![Heroes list](/assets/heroes-list.png "Heroes list")
 
 _**Server rendering**_
 
-At that time PHP was the one, and we can render our pages on the server easily, so this was our choice to start our new promising project.
+At that time, PHP was the technology to build your website with. We can render our pages on the server easily, so this is our choice to start our new promising project.
 
 Considering `$heroes` is coming from a database, the following code is iterating on them and generating the output as HTML that is going to be returned to the browser.
 
@@ -36,11 +36,11 @@ Considering `$heroes` is coming from a database, the following code is iterating
 </ul>
 ```
 
-Now we have our app server rendered working fine in production.
+Now we have our server-rendered app working fine in production. Sweet!
 
 _**JQuery**_
 
-As time goes, we want more flexibility on the front end side, so we looked around and found out that JQuery is on its boom and it fits our needs. So, here we go to rewrite our amazing app to use JQuery:
+However, as time goes, we want more flexibility on the frontend side, so we looked around and found out that jQuery is booming, and it fits our needs. So, here we go to rewrite our amazing app to use jQuery:
 
 ```javascript
 <ul id="heroes-list"></ul>
