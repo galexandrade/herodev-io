@@ -50,6 +50,18 @@ module.exports = {
           },
           {
             resolve: `gatsby-remark-vscode`,
+            options: {
+              plugins: [
+                {
+                  resolve: `gatsby-remark-vscode`,
+                  // All options are optional. Defaults shown here.
+                  options: {
+                    theme: "Solarized Dark", // Read on for list of included themes. Also accepts object and function forms.
+                    injectStyles: false, // Injects (minimal) additional CSS for layout and scrolling
+                  },
+                },
+              ],
+            },
           },
           {
             resolve: `gatsby-remark-copy-linked-files`,
