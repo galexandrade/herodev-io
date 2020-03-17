@@ -3,10 +3,10 @@ path: we-are-writing-legacy-code
 date: 2020-03-03T15:23:43.280Z
 title: We are writing legacy code
 description: >-
-  Technology is in continuous evolution and that makes the code we write today
-  the one we are going to rewrite tomorrow.
+  Technology is constantly evolving, and that makes the code we write today the
+  one we are going to rewrite tomorrow.
 ---
-Technology is in constantly evolving, and that makes the code we write today the one we are going to rewrite tomorrow.
+Technology is constantly evolving, and that makes the code we write today the one we are going to rewrite tomorrow.
 
 [![](/assets/screen-shot-2020-03-17-at-3.22.59-pm.png)](https://www.youtube.com/watch?v=naZp50j6U74)
 
