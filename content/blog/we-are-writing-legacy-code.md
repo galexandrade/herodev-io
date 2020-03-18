@@ -10,6 +10,8 @@ Technology is constantly evolving, and that makes the code we write today the on
 
 [![](/assets/screen-shot-2020-03-17-at-3.22.59-pm.png)](https://www.youtube.com/watch?v=naZp50j6U74)
 
+\-_Dev talks Saskatoon, Feb 27th 2020_-
+
 If you worked with frontend for some time, probably you have worked with many different technologies (server render web app, plain Javascript, JQuery, React, Angular, Vue) or a mix of them for doing the same thing: render a web page.
 
 We need to keep in mind that _technology is in continuous evolution._
