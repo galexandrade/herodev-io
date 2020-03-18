@@ -1,7 +1,7 @@
 ---
-path: we-are-writing-legacy-code
+path: you-are-writing-legacy-code
 date: 2020-03-03T15:23:43.280Z
-title: We are writing legacy code
+title: You are writing legacy code
 description: >-
   Technology is constantly evolving, and that makes the code we write today the
   one we are going to rewrite tomorrow.
@@ -10,7 +10,7 @@ Technology is constantly evolving, and that makes the code we write today the on
 
 [![](/assets/screen-shot-2020-03-17-at-3.22.59-pm.png)](https://www.youtube.com/watch?v=naZp50j6U74)
 
-\-_Dev talks Saskatoon, Feb 27th 2020_-
+\-[_Saskatoon Dev Talks_](https://www.meetup.com/Saskatoon-DevTalks/)_, Feb 27th 2020_-
 
 If you worked with frontend for some time, probably you have worked with many different technologies (server render web app, plain Javascript, JQuery, React, Angular, Vue) or a mix of them for doing the same thing: render a web page.
 
@@ -26,7 +26,7 @@ Let’s say that we are building our new startup back in 2005. Our app does a lo
 
 ![Heroes list](/assets/heroes-list.png "Heroes list")
 
-_**Server rendering**_
+**_Server rendering_**
 
 At that time, PHP was the technology to build your website with. We can render our pages on the server easily, so this is our choice to start our new promising project.
 
@@ -42,17 +42,17 @@ Considering `$heroes` is coming from a database, the following code is iterating
 
 Now we have our server-rendered app working fine in production. Sweet!
 
-_**JQuery**_
+**_JQuery_**
 
-However, as time goes, we want more flexibility on the frontend side, so we looked around and found out that jQuery is booming, and it fits our needs. So, here we go to rewrite our amazing app to use jQuery:
+However, as time goes, we wanted more flexibility on the frontend side, so we looked around and found out that jQuery is booming, and it fits our needs. So, here we go to rewrite our amazing app to use jQuery:
 
 ```javascript
 <ul id="heroes-list"></ul>
 <script>
    $(document).ready(function() {
       $.get("heroes.json", function(heroes, status) {
-         heroes.forEach(heroe =>
-            $("#heroes-list").append("<li>" + heroe + "</li>")
+         heroes.forEach(hero =>
+            $("#heroes-list").append("<li>" + hero + "</li>")
          );
       });
    });
@@ -63,7 +63,7 @@ However, as time goes, we want more flexibility on the frontend side, so we look
 
 The code above is getting the data from the server (imagine `heroes.json` as a Rest API) and appending each hero to the DOM inside the `heroes-list` div.
 
-_**React**_
+**_React_**
 
 As our product grows, our team grows as well and we realize that jQuery doesn't scale very well. Adding routes, for example, requires a lot of effort as well as maintaining the code-base and adding new functionality. But if we look around we see that there is a lot of new hip frameworks floating around. [Angular](https://angular.io/), [Vue](https://vuejs.org/), [React](https://reactjs.org/), all of them offer great flexibility when working with frontend and make it easier for us to scale our app as there is a ton of libraries we can just add to our project in case we need something.
 
