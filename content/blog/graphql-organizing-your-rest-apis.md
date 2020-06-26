@@ -14,12 +14,16 @@ How would we build an application like this one backed by REST apis?
 
 Let's suppose we have the following REST api schema:
 
-![Rest API](/assets/rest.png "Rest API")
+![Rest API](/assets/rest2.png "Rest API")
 
 On the front end is where things get complicated. For every mission coming from \`/missions\` we need to display also the villain and heroes information, but we only have id's on the \`/missions\` endpoint. We would have to deal with multiple api calls on the frontend to get all the data needed, and also play with \`Promises\` to wait for the related data. Something like this:
 
 ```
-FETCH MISSION 1    - FETCH VILLAIN    - FETCH HEROES...for all other missions
+FETCH MISSION 1
+    - FETCH VILLAIN
+    - FETCH HEROES
+
+...the same for all other elements in the missions array
 ```
 
 You could do some magic with \`Promise.all()\` but even that is a nightmare and not permanent as it will hit your REST api server several times.
