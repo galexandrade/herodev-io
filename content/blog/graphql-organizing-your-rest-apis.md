@@ -42,7 +42,126 @@ Basically, you ask for something and your GrapgQL server will give it to you if 
 
 GraphQL is not a software you can download, it is just an specification. Following the specification a lot of great libraries arose adding GraphQL support for most part of the languages such as Relay and Apollo.
 
-Theory is cool but, let's code!
+Theory is cool but, let's code! Let's build our heroes mission's application.
+
+For that to work we will need to build:
+
+1. REST API Server
+2. GraphQL Server
+3. Front end
+
+The full codebase you can find here: https://github.com/galexandrade/heroes-graphql
+
+## REST API Server
+
+I have decided to use NodeJS with hapi to build our Rest API Server. You can use whatever language you are more familiar with.
+
+If you have never used hapi you can refer https://hapi.dev/tutorials/?lang=en_US.
+
+Let's build api schema that I showed on the top of this article to return our missions, heroes and villains:
+
+```
+const init = async () => {
+    ...
+    server.route({
+        method: 'GET',
+        path: '/heroes/{id}',
+        handler: handleFindHeroRequest
+    });
+    server.route({
+        method: 'GET',
+        path: '/villains/{id}',
+        handler: handleFindVillainRequest
+    });
+    server.route({
+        method: 'GET',
+        path: '/missions',
+        handler: handleGetMissions
+    });
+    ...
+};
+```
+
+It is just three endpoints returning to fetch our data. You can take a look [here](https://github.com/galexandrade/heroes-graphql/blob/master/rest-api-server/index.js) to see the full code.
+
+## GraphQL Server
+
+Now that we have our Rest Api server ready, we need to build our GraphQL server using as data-loader the Rest Api server we just built.
+
+For this have choose to use Apollo but you can use whatever you are more comfortable with.
+
+You can refer [this documentation](https://www.apollographql.com/docs/apollo-server/) if you are not familiar with Apollo. Following the how to is pretty straightforward.
+
+An Apollo server is pretty simple:
+
+```
+//index.jsconst { ApolloServer, gql } = require('apollo-server');
+const typeDefs = require('./typeDefs');
+const resolvers = require('./resolvers');
+const dataSources = require('./dataSources');
+
+// The ApolloServer constructor requires two parameters: your schema
+// definition and your set of resolvers.
+const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    dataSources,
+});
+
+// The `listen` method launches a web server.
+server.listen().then(({ url }) => {
+    console.log(`🚀  Server ready at ${url}`);
+});
+```
+
+It is just grouping together three files, witch one refering to one important concepts when we talk about GraphQL Server:
+
+1 - TypeDefs
+
+It is where we define our graphs, the schema. Here is the place where we define the domain relationships. Forget about API's schema, switch your mind to think about domains.
+
+Let's create the following entities:
+
+```
+const { gql } = require('apollo-server');
+
+const typeDefs = gql`
+    type Hero {
+        id: ID
+        name: String!
+        photo: String!
+    }
+
+    type Villain {
+        id: ID
+        name: String!
+        photo: String!
+    }
+
+    type Mission {
+        id: ID
+        name: String!
+        villain: Villain!
+        heroes: [Hero!]!
+    }
+
+    type Query {
+        missions: [Mission!]!
+    }
+`;
+
+module.exports = typeDefs;
+```
+Let's take a closer look at the `Mission` entity. There we say it has a villain of the type `Villain` and it also has multiple heroes, as an collection of `Hero`.
+
+
+2 - Resolvers
+
+3 - DataSources
+
+## Front end
+
+sadsada
 
 SOLUTION
 
