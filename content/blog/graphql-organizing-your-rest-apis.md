@@ -26,15 +26,23 @@ FETCH MISSION 1
 ...the same for all other elements in the missions array
 ```
 
-You could do some magic with \`Promise.all()\` but even that is a nightmare and not permanent as it will hit your REST api server several times.
+You could do some magic with \`Promise.all()\` but even that is a nightmare and not performant as it will hit your REST api server several times.
 
-This is just a pretty simple application to exemplify the need to fetch related data. I am sure you have clear and real example where you were struggling to fetch those related data.
+The above application is a pretty simple one just to exemplify the need of fetching related data. I am sure you have a clear and real example where you were struggling to fetch those related data.
 
 ROUTE
 
-So, we can call GraphQL to save the day!
+GraphQL might be the key to save the day!
 
-But, what is GraphQL?
+For those that is not familiar, and is wondering what GraphQL is, here is the official definition:
+
+> GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
+
+Basically, you ask for something and your GrapgQL server will give it to you if it is available. The data might come from different sources, but in our case we are using our Rest APIs as datasource.
+
+GraphQL is not a software you can download, it is just an specification. Following the specification a lot of great libraries arose adding GraphQL support for most part of the languages such as Relay and Apollo.
+
+Theory is cool but, let's code!
 
 SOLUTION
 
