@@ -168,16 +168,7 @@ const resolvers = {
         missions: (_source, _args, { dataSources }) =>
             dataSources.restAPI.getMissions(),
     },
-    Mission: {
-        villain: (parent, _args, { dataSources }) => {
-            return dataSources.restAPI.getVillain(parent.villain_id);
-        },
-        heroes: (parent, _args, { dataSources }) => {
-            return parent.heroes_ids.map((heroId) =>
-                dataSources.restAPI.getHero(heroId)
-            );
-        },
-    },
+    ...
 };
 
 module.exports = resolvers;
@@ -189,13 +180,83 @@ Wait? How will it load the villain and the heroes as we have defined on our type
 
 There is a resolver for \`Mission\`. Whenever a \`Mission\` type is returned this resolver will be invoked to grab related data (if the user requested it). Here it have a resolver for \`villain\`, it basiclay calls a data source to call our endpoint \`/villains/{id}\` with the id comming from the parent, I mean the mission.
 
+```
+//resolvers.js
+const resolvers = {
+    ...
+    Mission: {
+        villain: (parent, _args, { dataSources }) => {
+            return dataSources.restAPI.getVillain(parent.villain_id);
+        },
+        ...
+    },
+};
+
+module.exports = resolvers;
+```
+
 The same happens with heroes, where it maps all the \`heroes_ids\` from the mission and call our endpoint \`/heroes/{id}\`.
 
-You might be concerned about performance as it will be calling our \`/heroes/{id}\` endpoint several times. As I said, my goal here is just to explain how you can merge and load related data easily. But, YES! This might be a problem and there is a solution, there are called [DataLoader](https://www.apollographql.com/docs/apollo-server/data/data-sources/) where you can batch and make only one request.
+```
+//resolvers.js
+const resolvers = {
+    ...
+    Mission: {
+        ...,
+        heroes: (parent, _args, { dataSources }) => {
+            return parent.heroes_ids.map((heroId) =>
+                dataSources.restAPI.getHero(heroId)
+            );
+        },
+    },
+};
+
+module.exports = resolvers;
+```
+
+You might be concerned about performance as it will be calling our \`/heroes/{id}\` endpoint several times. As I said, my goal here is just to explain how you can merge and load related data easily. But, YES! This might be a problem and there is a solution, it is called [DataLoader](https://www.apollographql.com/docs/apollo-server/data/data-sources/) where you can batch and make only one request.
 
 **3 - DataSources**
 
-s
+Data sources define where load things from. In this case I have used the \`apollo-datasource-rest\` to link our Rest Apis.
+
+```
+//dataSources.js
+const { RESTDataSource } = require('apollo-datasource-rest');
+
+class RestAPI extends RESTDataSource {
+    constructor() {
+        super();
+        this.baseURL = 'http://localhost:3030/';
+    }
+
+    async getMissions() {
+        return this.get('missions');
+    }
+
+    async getVillain(id) {
+        return this.get(`villains/${id}`);
+    }
+
+    async getHero(id) {
+        return this.get(`heroes/${id}`);
+    }
+}
+
+module.exports = { restAPI: new RestAPI() };
+```
+
+
+
+**Wrapping up our GraphQL Server**
+
+[Here](https://github.com/galexandrade/heroes-graphql/tree/master/graphql-server) you can find the full codebase of our ApolloServer. At this point if you run \`yarn start\` or \`npm start\` you will start the server. Remember the RestAPI server need to be up.
+
+On your browser, navigating to http://localhost:4000/ should open the GraphQL playground.
+
+![Apollo playground](/assets/apolloplayground.png "Apollo playground")
+
+
 
 ## Front end
 
