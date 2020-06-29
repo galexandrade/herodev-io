@@ -116,14 +116,14 @@ server.listen().then(({ url }) => {
 
 It is just grouping together three files, witch one refering to one important concepts when we talk about GraphQL Server:
 
-1 - TypeDefs
+**1 - TypeDefs**
 
 It is where we define our graphs, the schema. Here is the place where we define the domain relationships. Forget about API's schema, switch your mind to think about domains.
 
 Let's create the following entities:
 
 ```
-const { gql } = require('apollo-server');
+//const { gql } = require('apollo-server');
 
 const typeDefs = gql`
     type Hero {
@@ -152,12 +152,50 @@ const typeDefs = gql`
 
 module.exports = typeDefs;
 ```
+
 Let's take a closer look at the `Mission` entity. There we say it has a villain of the type `Villain` and it also has multiple heroes, as an collection of `Hero`.
 
+The exclamation mark says that property cannot be \`null\`.
 
-2 - Resolvers
+**2 - Resolvers**
 
-3 - DataSources
+Resolvers is the guy responsible for gether a piece of data that the user requested. 
+
+```
+//resolvers.js
+const resolvers = {
+    Query: {
+        missions: (_source, _args, { dataSources }) =>
+            dataSources.restAPI.getMissions(),
+    },
+    Mission: {
+        villain: (parent, _args, { dataSources }) => {
+            return dataSources.restAPI.getVillain(parent.villain_id);
+        },
+        heroes: (parent, _args, { dataSources }) => {
+            return parent.heroes_ids.map((heroId) =>
+                dataSources.restAPI.getHero(heroId)
+            );
+        },
+    },
+};
+
+module.exports = resolvers;
+```
+
+First we have defined a resolver for \`Query\` and inside \`missions\`, it means when we request for missions, that fonction will be executed. There it is calling a datasource (we will talk more about datasources) to fetch our missions witch is the same response we retuen on our \`/missions\` rest endpoint.
+
+Wait? How will it load the villain and the heroes as we have defined on our type definition?
+
+There is a resolver for \`Mission\`. Whenever a \`Mission\` type is returned this resolver will be invoked to grab related data (if the user requested it). Here it have a resolver for \`villain\`, it basiclay calls a data source to call our endpoint \`/villains/{id}\` with the id comming from the parent, I mean the mission.
+
+The same happens with heroes, where it maps all the \`heroes_ids\` from the mission and call our endpoint \`/heroes/{id}\`.
+
+You might be concerned about performance as it will be calling our \`/heroes/{id}\` endpoint several times. As I said, my goal here is just to explain how you can merge and load related data easily. But, YES! This might be a problem and there is a solution, there are called [DataLoader](https://www.apollographql.com/docs/apollo-server/data/data-sources/) where you can batch and make only one request.
+
+**3 - DataSources**
+
+s
 
 ## Front end
 
