@@ -98,14 +98,16 @@ An Apollo server is pretty simple:
 //index.jsconst { ApolloServer, gql } = require('apollo-server');
 const typeDefs = require('./typeDefs');
 const resolvers = require('./resolvers');
-const dataSources = require('./dataSources');
+const RestAPI = require('./dataSource');
 
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
 const server = new ApolloServer({
     typeDefs,
     resolvers,
-    dataSources,
+    dataSources: () => {
+        return { restAPI: new RestAPI() };
+    },
 });
 
 // The `listen` method launches a web server.
@@ -221,7 +223,7 @@ You might be concerned about performance as it will be calling our \`/heroes/{id
 Data sources define where load things from. In this case I have used the \`apollo-datasource-rest\` to link our Rest Apis.
 
 ```
-//dataSources.js
+//dataSource.js
 const { RESTDataSource } = require('apollo-datasource-rest');
 
 class RestAPI extends RESTDataSource {
@@ -243,10 +245,8 @@ class RestAPI extends RESTDataSource {
     }
 }
 
-module.exports = { restAPI: new RestAPI() };
+module.exports = RestAPI;
 ```
-
-
 
 **Wrapping up our GraphQL Server**
 
@@ -255,6 +255,8 @@ module.exports = { restAPI: new RestAPI() };
 On your browser, navigating to http://localhost:4000/ should open the GraphQL playground.
 
 ![Apollo playground](/assets/apolloplayground.png "Apollo playground")
+
+Cool! Now we have our GraphQL running! Can you feel the power?
 
 
 
