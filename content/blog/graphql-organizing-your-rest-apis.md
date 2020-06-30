@@ -258,12 +258,113 @@ On your browser, navigating to http://localhost:4000/ should open the GraphQL pl
 
 Cool! Now we have our GraphQL running! Can you feel the power?
 
-
-
 ## Front end
 
-sadsada
+Now let's connect the last piece missing on our plusze, the front end.
 
-SOLUTION
+You can see the full code base [here](https://github.com/galexandrade/heroes-graphql/tree/master/react-web-app). My focus is on the GraphQL part, so, I'm not concerned about styling or testing the components properly here.
 
-How can we simplfy this application with GraphQL?
+First we need to create a new React application with `create-react-app` and then install the [Apollo client for React](https://www.apollographql.com/docs/react/get-started/):
+
+```
+npm install apollo-boost @apollo/react-hooks graphql
+```
+
+Now we need to connect our Apollo Server with our frontend through `ApolloProvider`. Let's do this on \`index.js\`:
+
+```
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost';
+
+const client = new ApolloClient({
+    uri: 'http://localhost:4000',
+});
+
+ReactDOM.render(
+    <React.StrictMode>
+        <ApolloProvider client={client}>
+            <App />
+        </ApolloProvider>
+    </React.StrictMode>,
+    document.getElementById('root')
+);
+```
+
+Perfect! Now let's create the \`graphql/query.js\` file to create our first query asking for what we want:
+
+```
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from 'apollo-boost';
+
+export const MISSIONS_QUERY = gql`
+    {
+        missions {
+            name
+            villain {
+                name
+                photo
+            }
+            heroes {
+                name
+                photo
+            }
+        }
+    }
+`;
+```
+
+Awesome! Now, we junt need to use it!
+
+Let's open the \`App.js\` and hook it up with the query that we just built using \`useQuery\`:
+
+```
+import React from 'react';
+import Mission from './components/Mission';
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from 'apollo-boost';
+import { MISSIONS_QUERY } from './graphql/query';
+
+const App = () => {
+    const { loading, error, data } = useQuery(MISSIONS_QUERY);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error :(</p>;
+
+    return (
+        <div className="app">
+            <header className="app-header">
+                <h1>Missions</h1>
+            </header>
+            <div className="list">
+                {data.missions.map((mission, index) => (
+                    <Mission key={index} {...mission} />
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default App;
+```
+`useQuery` returns `data` with all the missions including everything we asked such as vilain and heroes. Now we just need to render it. On the code above I am rendering each `mission` with the component `Mission`. Let's take a look on that component:
+
+```
+import React from 'react';
+import ListItem from './ListItem';
+
+const Mission = ({ name, villain, heroes }) => (
+    <div className="mission">
+        <h2 className="title">{name}</h2>
+        <div className="label">Villain:</div>
+        <ListItem name={villain.name} photo={villain.photo} />
+
+        <div className="label">Heroes who saved the day:</div>
+        {heroes.map((hero, index) => (
+            <ListItem key={index} name={hero.name} photo={hero.photo} />
+        ))}
+    </div>
+);
+
+export default Mission;
+```
+As you can see it receives `villain` and `heroes` with name and photo. AMAZING!!
