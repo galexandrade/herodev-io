@@ -4,7 +4,32 @@ date: 2020-06-30T00:24:47.596Z
 title: GraphQL organizing your REST apis
 description: GraphQL organizing your REST apis
 ---
-PROBLEM
+In this blog post you will learn how you can fetch related data from others Rest endpoints without ending up with several http requests on the frontend using GraphQL as your Rest Api data layer.
+Just a disclaimer, my goal here is to hand's on code, so don't expect this to be short! If you are with me, let's get the party started!
+
+We all know it is a good practice to structure our Reat Apis with a clear boundaries between the resources. When we have relationships between the resources we expose the entity id and then we can get the full entity on the proper rest resource endpoint. Something like this:
+```javascript
+GET /missions
+[
+   {
+      name: 'Mission 1',
+      villain_id: 1,
+      heroes_ids: [1, 2]
+   }
+]
+
+GET /villains/1
+{
+    name: 'Thanos',
+    photo: 'thanos.jpg'
+}
+
+GET /heroes/1
+{
+    name: 'Hulk',
+    photo: 'hulk.jpg'
+}
+```
 
 Let's suppose we have a super complicated application that displays a list of missions' cards showing up the villain and also the heroes that saved the day. It looks like this one:
 
