@@ -119,8 +119,6 @@ const typeDefs = require('./typeDefs');
 const resolvers = require('./resolvers');
 const RestAPI = require('./dataSource');
 
-// The ApolloServer constructor requires two parameters: your schema
-// definition and your set of resolvers.
 const server = new ApolloServer({
     typeDefs,
     resolvers,
@@ -286,7 +284,7 @@ You can see the full code base [here](https://github.com/galexandrade/heroes-gra
 
 First we need to create a new React application with `create-react-app` and then install the [Apollo client for React](https://www.apollographql.com/docs/react/get-started/):
 
-```javascript
+```shell
 npm install apollo-boost @apollo/react-hooks graphql
 ```
 
