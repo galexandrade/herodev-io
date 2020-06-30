@@ -31,17 +31,11 @@ GET /heroes/1
 }
 ```
 
-Let's suppose we have a super complicated application that displays a list of missions' cards showing up the villain and also the heroes that saved the day. It looks like this one:
+On the front end is where things get complicated. Let's suppose we have the following screen backed by those endpoints:
 
 ![Missions application](/assets/screen-shot-2020-06-25-at-6.33.27-pm.png "Missions application")
 
-How would we build an application like this one backed by REST apis?
-
-Let's suppose we have the following REST api schema:
-
-![Rest API](/assets/rest2.png "Rest API")
-
-On the front end is where things get complicated. For every mission coming from \`/missions\` we need to display also the villain and heroes information, but we only have id's on the \`/missions\` endpoint. We would have to deal with multiple api calls on the frontend to get all the data needed, and also play with \`Promises\` to wait for the related data. Something like this:
+For every mission coming from \`/missions\` we need to display also the villain and heroes information, but we only have id's on the \`/missions\` endpoint. We would have to deal with multiple api calls on the frontend to get all the data needed, and also play with \`Promises\` to wait for the related data. Something like this:
 
 ```
 FETCH MISSION 1
