@@ -60,7 +60,7 @@ If you have never used hapi you can refer https://hapi.dev/tutorials/?lang=en_US
 
 Let's build api schema that I showed on the top of this article to return our missions, heroes and villains:
 
-```
+```javascript
 const init = async () => {
     ...
     server.route({
@@ -94,8 +94,9 @@ You can refer [this documentation](https://www.apollographql.com/docs/apollo-ser
 
 An Apollo server is pretty simple:
 
-```
-//index.jsconst { ApolloServer, gql } = require('apollo-server');
+```javascript
+//index.js
+const { ApolloServer, gql } = require('apollo-server');
 const typeDefs = require('./typeDefs');
 const resolvers = require('./resolvers');
 const RestAPI = require('./dataSource');
@@ -124,8 +125,9 @@ It is where we define our graphs, the schema. Here is the place where we define 
 
 Let's create the following entities:
 
-```
-//const { gql } = require('apollo-server');
+```javascript
+//typeDefs.js
+const { gql } = require('apollo-server');
 
 const typeDefs = gql`
     type Hero {
@@ -163,7 +165,7 @@ The exclamation mark says that property cannot be \`null\`.
 
 Resolvers is the guy responsible for gether a piece of data that the user requested. 
 
-```
+```javascript
 //resolvers.js
 const resolvers = {
     Query: {
@@ -182,7 +184,7 @@ Wait? How will it load the villain and the heroes as we have defined on our type
 
 There is a resolver for \`Mission\`. Whenever a \`Mission\` type is returned this resolver will be invoked to grab related data (if the user requested it). Here it have a resolver for \`villain\`, it basiclay calls a data source to call our endpoint \`/villains/{id}\` with the id comming from the parent, I mean the mission.
 
-```
+```javascript
 //resolvers.js
 const resolvers = {
     ...
@@ -199,7 +201,7 @@ module.exports = resolvers;
 
 The same happens with heroes, where it maps all the \`heroes_ids\` from the mission and call our endpoint \`/heroes/{id}\`.
 
-```
+```javascript
 //resolvers.js
 const resolvers = {
     ...
@@ -222,7 +224,7 @@ You might be concerned about performance as it will be calling our \`/heroes/{id
 
 Data sources define where load things from. In this case I have used the \`apollo-datasource-rest\` to link our Rest Apis.
 
-```
+```javascript
 //dataSource.js
 const { RESTDataSource } = require('apollo-datasource-rest');
 
@@ -266,13 +268,13 @@ You can see the full code base [here](https://github.com/galexandrade/heroes-gra
 
 First we need to create a new React application with `create-react-app` and then install the [Apollo client for React](https://www.apollographql.com/docs/react/get-started/):
 
-```
+```javascript
 npm install apollo-boost @apollo/react-hooks graphql
 ```
 
 Now we need to connect our Apollo Server with our frontend through `ApolloProvider`. Let's do this on \`index.js\`:
 
-```
+```javascript
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 
@@ -292,7 +294,7 @@ ReactDOM.render(
 
 Perfect! Now let's create the \`graphql/query.js\` file to create our first query asking for what we want:
 
-```
+```javascript
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
@@ -317,7 +319,7 @@ Awesome! Now, we junt need to use it!
 
 Let's open the \`App.js\` and hook it up with the query that we just built using \`useQuery\`:
 
-```
+```javascript
 import React from 'react';
 import Mission from './components/Mission';
 import { useQuery } from '@apollo/react-hooks';
@@ -349,7 +351,7 @@ export default App;
 
 `useQuery` returns `data` with all the missions including everything we asked such as vilain and heroes. Now we just need to render it. On the code above I am rendering each `mission` with the component `Mission`. Let's take a look on that component:
 
-```
+```javascript
 import React from 'react';
 import ListItem from './ListItem';
 
