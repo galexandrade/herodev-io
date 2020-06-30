@@ -8,6 +8,7 @@ In this blog post you will learn how you can fetch related data from others Rest
 Just a disclaimer, my goal here is to hand's on code, so don't expect this to be short! If you are with me, let's get the party started!
 
 We all know it is a good practice to structure our Reat Apis with a clear boundaries between the resources. When we have relationships between the resources we expose the entity id and then we can get the full entity on the proper rest resource endpoint. Something like this:
+
 ```javascript
 GET /missions
 [
@@ -45,11 +46,9 @@ FETCH MISSION 1
 ...the same for all other elements in the missions array
 ```
 
-You could do some magic with \`Promise.all()\` but even that is a nightmare and not performant as it will hit your REST api server several times.
+You could do some magic with \`Promise.all()\` but even that would be a nightmare and also not performant as it will hit the endpoints several times to fetch the `villain` and `heroes` for each mission.
 
 The above application is a pretty simple one just to exemplify the need of fetching related data. I am sure you have a clear and real example where you were struggling to fetch those related data.
-
-ROUTE
 
 GraphQL might be the key to save the day!
 
@@ -59,7 +58,7 @@ For those that is not familiar, and is wondering what GraphQL is, here is the of
 
 Basically, you ask for something and your GrapgQL server will give it to you if it is available. The data might come from different sources, but in our case we are using our Rest APIs as datasource.
 
-GraphQL is not a software you can download, it is just an specification. Following the specification a lot of great libraries arose adding GraphQL support for most part of the languages such as Relay and Apollo.
+GraphQL is not a software you can download, it is just an specification. Following the specification a lot of great libraries arose adding support for most part of the languages. Between them Relay and Apollo.
 
 Theory is cool but, let's code! Let's build our heroes mission's application.
 
@@ -67,20 +66,18 @@ For that to work we will need to build:
 
 1. REST API Server
 2. GraphQL Server
-3. Front end
+3. Front end application
 
 The full codebase you can find here: https://github.com/galexandrade/heroes-graphql
 
 ## REST API Server
 
-I have decided to use NodeJS with hapi to build our Rest API Server. You can use whatever language you are more familiar with.
+I have decided to use NodeJS with [hapi](https://hapi.dev/) to build our Rest API Server. You can use whatever language you are more familiar with.
 
-If you have never used hapi you can refer https://hapi.dev/tutorials/?lang=en_US.
-
-Let's build api schema that I showed on the top of this article to return our missions, heroes and villains:
+Let's build the same endpoints I have mentioned beforehand:
 
 ```javascript
-const init = async () => {
+//index.jsconst init = async () => {
     ...
     server.route({
         method: 'GET',
@@ -101,7 +98,9 @@ const init = async () => {
 };
 ```
 
-It is just three endpoints returning to fetch our data. You can take a look [here](https://github.com/galexandrade/heroes-graphql/blob/master/rest-api-server/index.js) to see the full code.
+It will create three endpoints \`/missions\`, \`/villains/{id}\` and \`/heroes/{id}\` returning some mock data as my goal here if just to focus on the GraphQL part. You can take a look [here](https://github.com/galexandrade/heroes-graphql/blob/master/rest-api-server/index.js) to see the full code.
+
+Running \`yarn start\` or \`npm start\` you should be able to start the server.
 
 ## GraphQL Server
 
@@ -391,8 +390,6 @@ export default Mission;
 ```
 
 As you can see it receives `villain` and `heroes` with name and photo. AMAZING!!
-
-
 
 ## Conclusion
 
