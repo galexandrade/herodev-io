@@ -10,7 +10,7 @@ Just a disclaimer, my goal here is to go hand's on code, so don't expect this to
 
 We all know it is a good practice to structure our REST APIs with a [clear boundaries between the resources](https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9). When we have relationships between the resources we expose the entity id and then we can get the full entity on the proper rest resource endpoint. Something like this:
 
-```json
+```sh
 GET /missions
 [
    {
