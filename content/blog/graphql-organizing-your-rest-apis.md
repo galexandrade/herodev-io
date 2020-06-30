@@ -346,6 +346,7 @@ const App = () => {
 
 export default App;
 ```
+
 `useQuery` returns `data` with all the missions including everything we asked such as vilain and heroes. Now we just need to render it. On the code above I am rendering each `mission` with the component `Mission`. Let's take a look on that component:
 
 ```
@@ -367,4 +368,15 @@ const Mission = ({ name, villain, heroes }) => (
 
 export default Mission;
 ```
+
 As you can see it receives `villain` and `heroes` with name and photo. AMAZING!!
+
+
+
+## Conclusion
+
+With only one http request we were able to receive all the data we needed to render our mission cards displaing the villain and the heroes associated with each mission.
+
+The GraphQL Server was able to handle our request and join all the associated data making the rest api calls on demand. We didn't dive deep here, but Apollo provides awesome performance tools. One of the greatest features is caching. I really recoment you to take a deep dive into it.
+
+Without this
