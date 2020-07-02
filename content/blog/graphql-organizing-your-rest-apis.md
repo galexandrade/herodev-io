@@ -69,13 +69,13 @@ For that to work we will need to build:
 2. GraphQL Server
 3. Front end application
 
-The full code-base you can find here: https://github.com/galexandrade/heroes-graphql
+The full code-base you can find [here](https://github.com/galexandrade/heroes-graphql). Feel free to clone it and play with it!
 
 ## REST API Server
 
-I have decided to use NodeJS with [hapi](https://hapi.dev/) to build our Rest API Server. You can use whatever language you are more familiar with.
+I have decided to use NodeJS with [hapi](https://hapi.dev) to build our Rest API Server. You can use whatever language you are more familiar with.
 
-Let's build the same endpoints I have mentioned beforehand:
+Before following the [hapi start guide](https://hapi.dev/tutorials/gettingstarted/?lang=en_US) inside the folder `rest-api-server` I have created an `index.js` to configure the routes:
 
 ```javascript
 //index.jsconst init = async () => {
@@ -99,19 +99,19 @@ Let's build the same endpoints I have mentioned beforehand:
 };
 ```
 
-It will create three endpoints \`/missions\`, \`/villains/{id}\` and \`/heroes/{id}\` returning some mock data as my goal here if just to focus on the GraphQL part. You can take a look [here](https://github.com/galexandrade/heroes-graphql/blob/master/rest-api-server/index.js) to see the full code.
+It will create three endpoints `/missions`, `/villains/{id}` and `/heroes/{id}` returning some mock data as my goal here if just to focus on the GraphQL part. You can take a look [here](https://github.com/galexandrade/heroes-graphql/blob/master/rest-api-server/index.js) to see the full code.
 
-Running \`yarn start\` or \`npm start\` you should be able to start the server.
+Running `yarn start` or `npm start` you should be able to start the server and hit those endpoints.
 
 ## GraphQL Server
 
-Now that we have our REST API server ready, we need to build our GraphQL server using as data-loader the REST API server we just built.
+Now we have our REST API server ready, we need to build the GraphQL server using as data-loader the endpoints we just built.
 
-For this have choose to use Apollo but you can use whatever you are more comfortable with.
+I have decided to use [Apollo](http://apollographql.com/) as I am more familiar with it, but you can use whatever you are more comfortable with.
 
-You can refer [this documentation](https://www.apollographql.com/docs/apollo-server/) if you are not familiar with Apollo. Following the how to is pretty straightforward.
+I have created a folder called `graphql-server` and followed the [Apollo start guide](https://www.apollographql.com/docs/apollo-server/getting-started/) to install it there.
 
-An Apollo server is pretty simple:
+An Apollo server is pretty simple, this is the entry point `index.js`:
 
 ```javascript
 //index.js
@@ -134,11 +134,11 @@ server.listen().then(({ url }) => {
 });
 ```
 
-It is just grouping together three files, witch one referring to one important concepts when we talk about GraphQL Server:
+It is just grouping together three files into the class `ApolloServer`, witch one referring to one important concept when we talk about GraphQL Server:
 
 **1 - TypeDefs**
 
-It is where we define our graphs, the schema. Here is the place where we define the domain relationships. Forget about APIs schema, switch your mind to think about domains and entities.
+It is where we define our graphs, I mean, the schema. Here is the place where we define the domain relationships. Forget all about API schemas, [switch your mind to think only about domains and entities](https://graphqlme.com/2017/11/11/build-better-graphql-apis-thinking-in-graphs/).
 
 Let's create the following entities:
 
@@ -174,13 +174,13 @@ const typeDefs = gql`
 module.exports = typeDefs;
 ```
 
-Let's take a closer look at the `Mission` entity. There we say it has a villain of the type `Villain` and it also has multiple heroes, as an collection of `Hero`.
+Let's take a closer look at the `Mission` entity. There, we say it has a villain of the type `Villain` and it also has multiple heroes, as a collection of `Hero`.
 
-The exclamation mark says that property cannot be \`null\`.
+The exclamation mark says that property cannot be `null`.
 
 **2 - Resolvers**
 
-Resolvers is the guy responsible for get a piece of data that the user requested. 
+Resolver is the guy responsible for getting a piece of data that was requested. 
 
 ```javascript
 //resolvers.js
