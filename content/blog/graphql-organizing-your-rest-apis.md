@@ -4,40 +4,40 @@ date: 2020-06-30T00:24:47.596Z
 title: GraphQL organizing your REST apis
 description: GraphQL organizing your REST apis
 ---
-In this blog post you will learn how you can fetch related data from Rest endpoints without ending up with several HTTP requests on the front-end. We will use GraphQL as a REST API data layer.
+In this blog post you will learn how you can fetch related data from REST endpoints without ending up with several HTTP requests on the front-end. We will use GraphQL as a REST API data layer.
 
-Just a disclaimer, my goal here is to go hand's on code, so don't expect this to be short! If you are with me, let's get the party started!
+So, my goal here is to go hand's on code, building a full application from SCRATCH, so don't expect this to be short! If you are with me, let's get the party started!
 
-We all know it is a good practice to structure our REST APIs with a [clear boundaries between the resources](https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9). When we have relationships between the resources we expose the entity id and then we can get the full entity on the proper rest resource endpoint. Something like this:
+We all know it is a good practice to structure our REST APIs with a [clear boundaries between the resources](https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9). When we have relationships between the resources we expose the entity id and then we can get the full information from that id on the proper endpoint resource. Something like this:
 
 ```sh
 GET /missions
 [
    {
       name: 'Mission 1',
-      villain_id: 1,
-      heroes_ids: [1, 2]
+      villain_id: 1, 
+      heroes_ids: [1, 2] 
    }
 ]
 
-GET /villains/1
+GET /villains/{id}
 {
     name: 'Thanos',
     photo: 'thanos.jpg'
 }
 
-GET /heroes/1
+GET /heroes/{id}
 {
     name: 'Hulk',
     photo: 'hulk.jpg'
 }
 ```
 
-On the front end is where things get complicated. Let's suppose we have the following screen backed by those endpoints:
+So far everithing is good but, things will get more complicated on the front-end part. Let's suppose we have the following screen backed by those endpoints:
 
 ![Missions application](/assets/screen-shot-2020-06-25-at-6.33.27-pm.png "Missions application")
 
-For every mission coming from \`/missions\` we need to display also the villain and heroes information, but we only have id's on the \`/missions\` endpoint. We would have to deal with multiple api calls on the front-end to get all the data needed, and also play with \`Promises\` to wait for the related data. Something like this:
+For every mission coming from `/missions` we need to display also the villain and heroes information, but we only have id's on the `/missions` endpoint. We would have to deal with multiple api calls on the front-end to get all the data needed, and also play with `Promises` to wait for the related data. Something like this:
 
 ```
 FETCH MISSION 1
@@ -47,19 +47,19 @@ FETCH MISSION 1
 ...the same for all other elements in the missions array
 ```
 
-You could do some magic with \`Promise.all()\` but even that would be a nightmare and also not performant as it will hit the endpoints several times to fetch the `villain` and `heroes` for each mission.
+You could do some magic with `Promise.all()` but even that would be a nightmare and also not performant as it will hit the endpoints several times to fetch the `villain` and `heroes` for each mission.
 
-The above application is a pretty simple one just to exemplify the need of fetching related data. I am sure you have a clear and real example where you were struggling to fetch those related data.
+The above application is a pretty simple one just to exemplify the need of fetching related data. I am sure you have a clear and real example where you were struggling on the same situation.
 
-GraphQL might be the key to save the day!
+GraphQL might be the key to save the day! :tada:
 
-For those that is not familiar, and is wondering what GraphQL is, here is the official definition:
+For those that are not familiar, and is wondering what GraphQL is, here is the official definition:
 
 > GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
 
-Basically, you ask for something and your GrapgQL server will give it to you if it is available. The data might come from different sources, but in our case we are using our Rest APIs as data-source.
+Basically, you ask for something and your GrapgQL server will give it to you if it is available. The data might come from different sources, but in our case we are using our Rest APIs to fulfill the requests.
 
-GraphQL is not a software you can download, it is just an specification. Following the specification a lot of great libraries arose adding support for most part of the languages. Between them Relay and Apollo.
+GraphQL is not a software you can download, it is just a [specification](https://spec.graphql.org/). Following that specification a lot of great libraries arose adding support for most part of the [languages and platforms](https://graphql.org/code/). In the JavaScript world [Relay](https://relay.dev/) and [Apollo](https://www.apollographql.com/) are the most popular.
 
 Theory is cool but, let's code! Let's build our heroes mission's application.
 
