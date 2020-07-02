@@ -243,7 +243,7 @@ Also, in production the GraphQL server will be in the same network as the REST A
 
 **3 - DataSources**
 
-Data sources define where load things from. In this case I have used the \`apollo-datasource-rest\` to link our REST APIs.
+DataSources define where to load things from. In this case I have used the `apollo-datasource-rest` to link with the REST APIs. It is used by the resolver that we talked above.
 
 ```javascript
 //dataSource.js
@@ -273,7 +273,7 @@ module.exports = RestAPI;
 
 **Wrapping up our GraphQL Server**
 
-[Here](https://github.com/galexandrade/heroes-graphql/tree/master/graphql-server) you can find the full code-base of our ApolloServer. At this point if you run \`yarn start\` or \`npm start\` you will start the server. Remember the REST API server needs to be up.
+At this point if you run `yarn start` or `npm start` you will start the server. Remember the REST API server needs to be up.
 
 On your browser, navigating to http://localhost:4000/ should open the GraphQL playground.
 
@@ -281,13 +281,15 @@ On your browser, navigating to http://localhost:4000/ should open the GraphQL pl
 
 Cool! Now we have our GraphQL running! Can you feel the power?
 
+[Here](https://github.com/galexandrade/heroes-graphql/tree/master/graphql-server) you can find the full code-base of our ApolloServer. 
+
 ## Front end
 
-Now let's connect the last piece missing on our puszle, the front end.
+Now, let's connect the last piece missing on our puszle, the front-end.
 
-You can see the full code base [here](https://github.com/galexandrade/heroes-graphql/tree/master/react-web-app). My focus is on the GraphQL part, so, I'm not concerned about styling or testing the components properly here.
+My focus here is on the GraphQL part, so, I'm not concerned about styling or testing the components properly.
 
-First we need to create a new React application with `create-react-app` and then install the [Apollo client for React](https://www.apollographql.com/docs/react/get-started/):
+First we need to [create a new React application](https://reactjs.org/docs/create-a-new-react-app.html) with `create-react-app` and then install the [Apollo client for React](https://www.apollographql.com/docs/react/get-started/):
 
 ```shell
 npm install apollo-boost @apollo/react-hooks graphql
@@ -313,7 +315,7 @@ ReactDOM.render(
 );
 ```
 
-Perfect! Now let's create the \`graphql/query.js\` file to create our first query asking for what we want:
+Perfect! Now let's create the `graphql/query.js` file to create our first query asking for what we want:
 
 ```javascript
 import { useQuery } from '@apollo/react-hooks';
@@ -338,7 +340,7 @@ export const MISSIONS_QUERY = gql`
 
 Awesome! Now, we just need to use it!
 
-Let's open the \`App.js\` and hook it up with the query that we just built using \`useQuery\`:
+Let's open the `App.js` and hook it up (literaly) with the query that we just built using `useQuery`:
 
 ```javascript
 import React from 'react';
@@ -370,7 +372,9 @@ const App = () => {
 export default App;
 ```
 
-`useQuery` returns `data` with all the missions including everything we asked such as villain and heroes. Now we just need to render it. On the code above I am rendering each `mission` with the component `Mission`. Let's take a look on that component:
+`useQuery` returns and object containing `loading`, `error` and `data`. Inside `data` will be available all the missions including everything we asked such as villain and heroes.
+
+Now we just need to render it. On the code above I am rendering each `mission` with the component `Mission`. Let's take a closer look at that component:
 
 ```javascript
 import React from 'react';
@@ -392,12 +396,20 @@ const Mission = ({ name, villain, heroes }) => (
 export default Mission;
 ```
 
-As you can see it receives `villain` and `heroes` with name and photo. AMAZING!!
+As you can see it receives `villain` and `heroes` with name and photo and just render it. AMAZING!!
 
 ## Conclusion
 
-With only one http request we were able to receive all the data we needed to render our mission cards displaying the villain and the heroes associated with each mission.
+As you saw, with only one http request we were able to receive all the data we needed to render our mission cards displaying the villain and the heroes associated with each mission.
 
-The GraphQL Server was able to handle our request and join all the associated data making the rest api calls on demand. We didn't dive deep here, but Apollo provides awesome performance tools. One of the greatest features is caching. I really recomend you to take a deep dive into it.
+The GraphQL Server was able to handle our request and join all the associated data making the REST API calls on demand. We didn't dive deep, but Apollo provides awesome performance tools. One of the greatest features is caching. I really recommend you to take a deep dive into it.
 
-Without this
+GraphQL brings great benefits:
+
+1. Front-end and mobile just receive what they want! Nothing more, nothing less!
+2. No need to make several request to grab related data from other endpoints.
+3. Less network trafic between your front-end application and backend as GraphQL might be on the same network as the REST Server.
+4. Better user experience as the user will probably see less spinners and it will be faster (much faster when using cache).
+5. Much more benefits that cannot fit on this article...
+
+Enjoy it!
