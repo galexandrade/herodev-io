@@ -134,7 +134,7 @@ server.listen().then(({ url }) => {
 });
 ```
 
-It is just grouping together three files into the class `ApolloServer`, witch one referring to one important concept when we talk about GraphQL Server:
+It is just grouping together three files into the class `ApolloServer`, witch one referring to one important concept when we talk about GraphQL Server: `typeDefs`, `Resolvers` and `dataSources`. Let's take a closer look at them:
 
 **1 - TypeDefs**
 
@@ -182,11 +182,13 @@ The exclamation mark says that property cannot be `null`.
 
 Resolver is the guy responsible for getting a piece of data that was requested. 
 
+First we have defined a resolver for `Query` and inside `getMissions`, it will be our entry point for when we query for `missions`. There it is calling a data-source (we will talk more about data-sources) to fetch our missions witch is the same response we return on the \`/missions\` endpoint.
+
 ```javascript
 //resolvers.js
 const resolvers = {
     Query: {
-        missions: (_source, _args, { dataSources }) =>
+        getMissions: (_source, _args, { dataSources }) =>
             dataSources.restAPI.getMissions(),
     },
     ...
@@ -195,11 +197,11 @@ const resolvers = {
 module.exports = resolvers;
 ```
 
-First we have defined a resolver for \`Query\` and inside \`missions\`, it means when we request for missions, that function will be executed. There it is calling a datasource (we will talk more about datasources) to fetch our missions witch is the same response we retuen on our \`/missions\` rest endpoint.
-
 Wait? How will it load the villain and the heroes as we have defined on our type definition?
 
-There is a resolver for \`Mission\`. Whenever a \`Mission\` type is returned this resolver will be invoked to grab related data (if the user requested it). Here it have a resolver for \`villain\`, it basiclay calls a data source to call our endpoint \`/villains/{id}\` with the id coming from the parent, I mean the mission.
+This is important!
+
+There is a resolver for `Mission`. Whenever a `Mission` type is returned this resolver will be invoked to grab related data (if the user requested it). Here it has a resolver for `villain`, it basically calls a data-source to call our the `/villains/{id}` with the `id` coming from the parent, I mean, the mission.
 
 ```javascript
 //resolvers.js
@@ -216,7 +218,7 @@ const resolvers = {
 module.exports = resolvers;
 ```
 
-The same happens with heroes, where it maps all the \`heroes_ids\` from the mission and call our endpoint \`/heroes/{id}\`.
+The same happens with heroes. It maps all the `heroes_ids` and calls the endpoint `/heroes/{id}` for each element.
 
 ```javascript
 //resolvers.js
@@ -235,7 +237,9 @@ const resolvers = {
 module.exports = resolvers;
 ```
 
-You might be concerned about performance as it will be calling our \`/heroes/{id}\` endpoint several times. As I said, my goal here is just to explain how you can merge and load related data easily. But, YES! This might be a problem and there is a solution, it is called [data-loader](https://www.apollographql.com/docs/apollo-server/data/data-sources/) where you can batch and make only one request.
+You might be concerned about performance as it will be calling the `/heroes/{id}` endpoint several times. As I said, my goal here is just to explain how you can merge and load related data easily. But, YES! This might be a problem and there is a solution, it is called [data-loader](https://www.apollographql.com/docs/apollo-server/data/data-sources/) where you can batch and make only one request.
+
+Also, in production the GraphQL server will be in the same network as the REST API server decreasing the load time compared with the client (browser) making those requests.
 
 **3 - DataSources**
 
