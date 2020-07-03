@@ -33,11 +33,13 @@ GET /heroes/{id}
 }
 ```
 
-So far everything is good but, things will get more complicated on the front-end part. Let's suppose we have the following screen backed by those endpoints:
+So far everything looks good but, things will get more complicated on the front-end side. Let's suppose we have the following application backed by those endpoints:
+
+A list of heroes movies cards. For it card it show up the villain's picture and name as well as the heroes who saved the day. When clicking on a card it will open up the trailler on a separate tab.
 
 ![Heroes Movies application](/assets/heroesmovies.png "Heroes Movies application")
 
-For every movie coming from `/movies` we need to display also the villain and heroes information, but we only have id's on the `/movies` endpoint. We would have to deal with multiple API calls on the front-end to get all the data needed, and also play with `Promises` to wait for the related data. Something like this:
+For every movie coming from `/movies` we need to display also the villain and heroes information, but we only have id's exposed. We would have to deal with multiple API calls on the front-end to get all the data needed, and also play with `Promises` to wait for the related data. Something like this:
 
 ```
 FETCH MOVIES 1
@@ -47,27 +49,27 @@ FETCH MOVIES 1
 ...the same for all other elements in the movies array
 ```
 
-You could do some magic with `Promise.all()` but even that would be a nightmare and also not performant as it will hit the endpoints several times to fetch the `villain` and `heroes` for each movie.
+You could do some magic with `Promise.all()` but even that would be a nightmare and also not performant as it will hit the endpoints several times to fetch the `villain` and `heroes` for each movie from the browser.
 
-The above application is a pretty simple one just to exemplify the need of fetching related data. I am sure you have a clear and real example where you were struggling on the same situation.
+The above application is a pretty simple one just to exemplify the pain of fetching related data. I am sure you have a clear and real example where you were struggling on the same situation.
 
-GraphQL might be the key to save the day! 🎉🎉
+GraphQL might be the hero to save the day! 🦸🏻‍♂️
 
 For those that are not familiar, and is wondering what GraphQL is, here is the official definition:
 
 > GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
 
-Basically, you ask for something and your GrapgQL server will give it to you if it is available. The data might come from different sources, but in our case we are using our Rest APIs to fulfill the requests.
+Basically, you ask for something and your GraphQL server will give it to you if it is available. The data might come from different sources, but in our case we are using our Rest APIs to fulfill the requests.
 
-GraphQL is not a software you can download, it is just a [specification](https://spec.graphql.org/). Following that specification a lot of great libraries arose adding support for most part of the [languages and platforms](https://graphql.org/code/). In the JavaScript world [Relay](https://relay.dev/) and [Apollo](https://www.apollographql.com/) are the most popular.
+It is not a software you can download, but a [specification](https://spec.graphql.org/). Following that specification a lot of great libraries arose adding support for most part of the [languages and platforms](https://graphql.org/code/). In the JavaScript world [Relay](https://relay.dev/) and [Apollo](https://www.apollographql.com/) are the most popular.
 
 Theory is cool but, let's code! Let's build our application from scratch.
 
 For that to work we will need to build:
 
-1. REST API Server
-2. GraphQL Server
-3. Front end application
+1. The REST API Server
+2. The GraphQL Server
+3. The Front end application
 
 The full code-base you can find [here](https://github.com/galexandrade/heroes-graphql). Feel free to clone it and play with it!
 
@@ -286,7 +288,7 @@ Cool! Now we have our GraphQL running! Can you feel the power?
 
 ## Front end
 
-Now, let's connect the last piece missing on our puszle, the front-end.
+Now, let's connect the last piece missing on our puzzle, the front-end.
 
 My focus here is on the GraphQL part, so, I'm not concerned about styling or testing the components properly.
 
@@ -342,7 +344,7 @@ export const MOVIES_QUERY = gql`
 
 Awesome! Now, we just need to use it!
 
-Let's open the `App.js` and hook it up (literaly) with the query that we just built using `useQuery`:
+Let's open the `App.js` and hook it up (literally) with the query that we just built using `useQuery`:
 
 ```javascript
 import React from 'react';
@@ -402,7 +404,7 @@ As you can see it receives `villain` and `heroes` with name and photo and just r
 
 ## Conclusion
 
-As you saw, with only one http request we were able to receive all the data we needed to render our movies cards displaying the villain and the heroes associated with each movie.
+As you saw, with only one HTTP request we were able to receive all the data we needed to render our movies cards displaying the villain and the heroes associated with each movie.
 
 The GraphQL Server was able to handle our request and join all the associated data making the REST API calls on demand. We didn't dive deep, but Apollo provides awesome performance tools. One of the greatest features is caching. I really recommend you to take a deep dive into it.
 
@@ -410,7 +412,7 @@ GraphQL brings great benefits:
 
 1. Front-end and mobile just receive what they want! Nothing more, nothing less!
 2. No need to make several request to grab related data from other endpoints.
-3. Less network trafic between your front-end application and backend as GraphQL might be on the same network as the REST Server.
+3. Less network traffic between your front-end application and backend as GraphQL might be on the same network as the REST Server.
 4. Better user experience as the user will probably see less spinners and it will be faster (much faster when using cache).
 5. Much more benefits that cannot fit on this article...
 
