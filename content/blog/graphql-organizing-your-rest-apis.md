@@ -43,11 +43,10 @@ A list of heroes movies cards. For it card it show up the villain's picture and 
 For every movie coming from `/movies` we need to display also the villain and heroes information, but we only have id's exposed. We would have to deal with multiple API calls on the front-end to get all the data needed, and also play with `Promises` to wait for the related data. Something like this:
 
 ```
-FETCH MOVIES 1
+FETCH MOVIES
+ITERATE ON THE MOVIES COLLECTION. FOR EACH:
     - FETCH VILLAIN
     - FETCH HEROES
-
-...the same for all other elements in the movies array
 ```
 
 You could do some magic with `Promise.all()` but even that would be a nightmare and also not performant as it will hit the endpoints several times to fetch the `villain` and `heroes` for each movie from the browser.
