@@ -11,10 +11,10 @@ So, my goal here is to go hand's on code, building a full application from SCRAT
 We all know it is a good practice to structure our REST APIs with a [clear boundaries between the resources](https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9). When we have relationships between the resources we expose the entity id and then we can get the full information from that id on the proper endpoint resource. Something like this:
 
 ```sh
-GET /missions
+GET /movies
 [
    {
-      name: 'Mission 1',
+      name: 'Avangers: Infinit war',      link: 'youtube-trailler-link',
       villain_id: 1, 
       heroes_ids: [1, 2] 
    }
@@ -33,25 +33,25 @@ GET /heroes/{id}
 }
 ```
 
-So far everithing is good but, things will get more complicated on the front-end part. Let's suppose we have the following screen backed by those endpoints:
+So far everything is good but, things will get more complicated on the front-end part. Let's suppose we have the following screen backed by those endpoints:
 
-![Missions application](/assets/screen-shot-2020-06-25-at-6.33.27-pm.png "Missions application")
+![Heroes Movies application](/assets/heroesmovies.png "Heroes Movies application")
 
-For every mission coming from `/missions` we need to display also the villain and heroes information, but we only have id's on the `/missions` endpoint. We would have to deal with multiple api calls on the front-end to get all the data needed, and also play with `Promises` to wait for the related data. Something like this:
+For every movie coming from `/movies` we need to display also the villain and heroes information, but we only have id's on the `/movies` endpoint. We would have to deal with multiple API calls on the front-end to get all the data needed, and also play with `Promises` to wait for the related data. Something like this:
 
 ```
-FETCH MISSION 1
+FETCH MOVIES 1
     - FETCH VILLAIN
     - FETCH HEROES
 
-...the same for all other elements in the missions array
+...the same for all other elements in the movies array
 ```
 
-You could do some magic with `Promise.all()` but even that would be a nightmare and also not performant as it will hit the endpoints several times to fetch the `villain` and `heroes` for each mission.
+You could do some magic with `Promise.all()` but even that would be a nightmare and also not performant as it will hit the endpoints several times to fetch the `villain` and `heroes` for each movie.
 
 The above application is a pretty simple one just to exemplify the need of fetching related data. I am sure you have a clear and real example where you were struggling on the same situation.
 
-GraphQL might be the key to save the day! :tada:
+GraphQL might be the key to save the day! 🎉🎉
 
 For those that are not familiar, and is wondering what GraphQL is, here is the official definition:
 
@@ -61,7 +61,7 @@ Basically, you ask for something and your GrapgQL server will give it to you if 
 
 GraphQL is not a software you can download, it is just a [specification](https://spec.graphql.org/). Following that specification a lot of great libraries arose adding support for most part of the [languages and platforms](https://graphql.org/code/). In the JavaScript world [Relay](https://relay.dev/) and [Apollo](https://www.apollographql.com/) are the most popular.
 
-Theory is cool but, let's code! Let's build our heroes mission's application.
+Theory is cool but, let's code! Let's build our application from scratch.
 
 For that to work we will need to build:
 
@@ -92,14 +92,14 @@ Before following the [hapi start guide](https://hapi.dev/tutorials/gettingstarte
     });
     server.route({
         method: 'GET',
-        path: '/missions',
-        handler: handleGetMissions
+        path: '/movies',
+        handler: handleGetMovies
     });
     ...
 };
 ```
 
-It will create three endpoints `/missions`, `/villains/{id}` and `/heroes/{id}` returning some mock data as my goal here if just to focus on the GraphQL part. You can take a look [here](https://github.com/galexandrade/heroes-graphql/blob/master/rest-api-server/index.js) to see the full code.
+It will create three endpoints `/movies`, `/villains/{id}` and `/heroes/{id}` returning some mock data as my goal here if just to focus on the GraphQL part. You can take a look [here](https://github.com/galexandrade/heroes-graphql/blob/master/rest-api-server/index.js) to see the full code.
 
 Running `yarn start` or `npm start` you should be able to start the server and hit those endpoints.
 
@@ -159,22 +159,23 @@ const typeDefs = gql`
         photo: String!
     }
 
-    type Mission {
+    type Movie {
         id: ID
         name: String!
+        link: String!
         villain: Villain!
         heroes: [Hero!]!
     }
 
     type Query {
-        missions: [Mission!]!
+        getMovies: [Mission!]!
     }
 `;
 
 module.exports = typeDefs;
 ```
 
-Let's take a closer look at the `Mission` entity. There, we say it has a villain of the type `Villain` and it also has multiple heroes, as a collection of `Hero`.
+Let's take a closer look at the `Movie` entity. There, we say it has a villain of the type `Villain` and it also has multiple heroes, as a collection of `Hero`.
 
 The exclamation mark says that property cannot be `null`.
 
@@ -182,14 +183,14 @@ The exclamation mark says that property cannot be `null`.
 
 Resolver is the guy responsible for getting a piece of data that was requested. 
 
-First we have defined a resolver for `Query` and inside `getMissions`, it will be our entry point for when we query for `missions`. There it is calling a data-source (we will talk more about data-sources) to fetch our missions witch is the same response we return on the \`/missions\` endpoint.
+First we have defined a resolver for `Query` and inside `getMovies`, it will be our entry point for when we query for `movies`. There it is calling a data-source (we will talk more about data-sources) to fetch our movies witch is the same response we return on the `/movies` endpoint.
 
 ```javascript
 //resolvers.js
 const resolvers = {
     Query: {
-        getMissions: (_source, _args, { dataSources }) =>
-            dataSources.restAPI.getMissions(),
+        getMMovies: (_source, _args, { dataSources }) =>
+            dataSources.restAPI.getMovies(),
     },
     ...
 };
@@ -201,13 +202,13 @@ Wait? How will it load the villain and the heroes as we have defined on our type
 
 This is important!
 
-There is a resolver for `Mission`. Whenever a `Mission` type is returned this resolver will be invoked to grab related data (if the user requested it). Here it has a resolver for `villain`, it basically calls a data-source to call our the `/villains/{id}` with the `id` coming from the parent, I mean, the mission.
+There is a resolver for `Movies`. Whenever a `Movie` type is returned this resolver will be invoked to grab related data (if the user requested it). Here it has a resolver for `villain`, it basically calls a data-source to call our the `/villains/{id}` with the `id` coming from the parent, I mean, the movie.
 
 ```javascript
 //resolvers.js
 const resolvers = {
     ...
-    Mission: {
+    Movie: {
         villain: (parent, _args, { dataSources }) => {
             return dataSources.restAPI.getVillain(parent.villain_id);
         },
@@ -224,7 +225,7 @@ The same happens with heroes. It maps all the `heroes_ids` and calls the endpoin
 //resolvers.js
 const resolvers = {
     ...
-    Mission: {
+    Movie: {
         ...,
         heroes: (parent, _args, { dataSources }) => {
             return parent.heroes_ids.map((heroId) =>
@@ -255,8 +256,8 @@ class RestAPI extends RESTDataSource {
         this.baseURL = 'http://localhost:3030/';
     }
 
-    async getMissions() {
-        return this.get('missions');
+    async getMovies() {
+        return this.get('movies');
     }
 
     async getVillain(id) {
@@ -277,7 +278,7 @@ At this point if you run `yarn start` or `npm start` you will start the server. 
 
 On your browser, navigating to http://localhost:4000/ should open the GraphQL playground.
 
-![Apollo playground](/assets/apolloplayground.png "Apollo playground")
+![Apollo playground](/assets/graphqlplayground.png "Apollo playground")
 
 Cool! Now we have our GraphQL running! Can you feel the power?
 
@@ -322,9 +323,9 @@ Perfect! Now let's create the `graphql/query.js` file to create our first query 
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
-export const MISSIONS_QUERY = gql`
+export const MOVIES_QUERY = gql`
     {
-        missions {
+        getMovies {
             name
             villain {
                 name
@@ -345,7 +346,7 @@ Let's open the `App.js` and hook it up (literaly) with the query that we just bu
 
 ```javascript
 import React from 'react';
-import Mission from './components/Mission';
+import MovieCard from './components/MovieCard';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import { MISSIONS_QUERY } from './graphql/query';
@@ -354,16 +355,16 @@ const App = () => {
     const { loading, error, data } = useQuery(MISSIONS_QUERY);
 
     if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error :(</p>;
+    if (error) return <p>Error :(</p>;    const movies = data.getMovies;
 
     return (
         <div className="app">
             <header className="app-header">
-                <h1>Missions</h1>
+                <h1>Heroes movies 🍿🎬</h1>
             </header>
             <div className="list">
-                {data.missions.map((mission, index) => (
-                    <Mission key={index} {...mission} />
+                {movies.map((movie, index) => (
+                    <MovieCard key={index} {...movie} />
                 ))}
             </div>
         </div>
@@ -373,16 +374,16 @@ const App = () => {
 export default App;
 ```
 
-`useQuery` returns and object containing `loading`, `error` and `data`. Inside `data` will be available all the missions including everything we asked such as villain and heroes.
+`useQuery` returns and object containing `loading`, `error` and `data`. Inside `data` will be available all the movies including everything we asked such as villain and heroes.
 
-Now we just need to render it. On the code above I am rendering each `mission` with the component `Mission`. Let's take a closer look at that component:
+Now we just need to render it. On the code above I am rendering each `movie` with the component `MovieCard`. Let's take a closer look at that component:
 
 ```javascript
 import React from 'react';
 import ListItem from './ListItem';
 
-const Mission = ({ name, villain, heroes }) => (
-    <div className="mission">
+const MovieCard = ({ name, link, villain, heroes }) => (
+    <div className="movie" onClick={() => window.open(link, '_blank')}>
         <h2 className="title">{name}</h2>
         <div className="label">Villain:</div>
         <ListItem name={villain.name} photo={villain.photo} />
@@ -394,14 +395,14 @@ const Mission = ({ name, villain, heroes }) => (
     </div>
 );
 
-export default Mission;
+export default MovieCard;
 ```
 
 As you can see it receives `villain` and `heroes` with name and photo and just render it. AMAZING!!
 
 ## Conclusion
 
-As you saw, with only one http request we were able to receive all the data we needed to render our mission cards displaying the villain and the heroes associated with each mission.
+As you saw, with only one http request we were able to receive all the data we needed to render our movies cards displaying the villain and the heroes associated with each movie.
 
 The GraphQL Server was able to handle our request and join all the associated data making the REST API calls on demand. We didn't dive deep, but Apollo provides awesome performance tools. One of the greatest features is caching. I really recommend you to take a deep dive into it.
 
