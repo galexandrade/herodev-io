@@ -291,14 +291,15 @@ My focus here is on the GraphQL part, so, I'm not concerned about styling or tes
 
 First we need to [create a new React application](https://reactjs.org/docs/create-a-new-react-app.html) with `create-react-app` and then install the [Apollo client for React](https://www.apollographql.com/docs/react/get-started/):
 
-```shell
+```sh
 npm install apollo-boost @apollo/react-hooks graphql
 ```
 
 Now we need to connect our Apollo Server with our front-end through `ApolloProvider`.
 
 ```javascript
-//index.jsimport { ApolloProvider } from '@apollo/react-hooks';
+//index.js
+import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 
 const client = new ApolloClient({
