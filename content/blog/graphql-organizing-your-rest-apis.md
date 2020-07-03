@@ -4,7 +4,7 @@ date: 2020-06-30T00:24:47.596Z
 title: GraphQL organizing your REST apis
 description: GraphQL organizing your REST apis
 ---
-In this blog post you will learn how you can fetch related data from REST endpoints without ending up with several HTTP requests on the front-end. We will use GraphQL as a REST API data layer.
+In this blog post you will learn how you can fetch related data from REST endpoints without ending up with several HTTP requests on the front-end. We will use GraphQL as a REST API data layer. 
 
 So, my goal here is to go hand's on code, building a full application from SCRATCH, so don't expect this to be short! If you are with me, let's get the party started!
 
