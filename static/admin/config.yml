@@ -1,6 +1,7 @@
 backend:
   name: github
   repo: galexandrade/herodev-io
+  use_graphql: true
 
 media_folder: static/assets
 public_folder: assets
