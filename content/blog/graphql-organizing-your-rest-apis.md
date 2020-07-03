@@ -10,23 +10,24 @@ My goal here is to go hand's on code, building a full application from scratch, 
 
 We all know it is a good practice to structure REST APIs with [clear boundaries between the resources](https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9). When we have relationships between the resources we expose the entity id and then we can get the full information based on that id on the proper endpoint resource. Something like this:
 
-```sh
-GET /movies
+```javascript
+//GET /movies
 [
    {
-      name: 'Avangers: Infinit war',      link: 'youtube-trailler-link',
+      name: 'Avangers: Infinit war',
+      link: 'youtube-trailler-link',
       villain_id: 1, 
       heroes_ids: [1, 2] 
    }
 ]
 
-GET /villains/{id}
+//GET /villains/{id}
 {
     name: 'Thanos',
     photo: 'thanos.jpg'
 }
 
-GET /heroes/{id}
+//GET /heroes/{id}
 {
     name: 'Hulk',
     photo: 'hulk.jpg'
@@ -80,7 +81,8 @@ I have decided to use NodeJS with [hapi](https://hapi.dev) to build our Rest API
 Before following the [hapi start guide](https://hapi.dev/tutorials/gettingstarted/?lang=en_US) inside the folder `rest-api-server` I have created an `index.js` to configure the routes:
 
 ```javascript
-//index.jsconst init = async () => {
+//index.js
+const init = async () => {
     ...
     server.route({
         method: 'GET',
@@ -282,7 +284,7 @@ On your browser, navigating to http://localhost:4000/ should open the GraphQL pl
 
 ![Apollo playground](/assets/graphqlplayground.png "Apollo playground")
 
-Cool! Now we have our GraphQL running! Can you feel the power?
+Cool! Now we have our GraphQL running! Can you feel the power? ⚡
 
 [Here](https://github.com/galexandrade/heroes-graphql/tree/master/graphql-server) you can find the full code-base of our ApolloServer. 
 
