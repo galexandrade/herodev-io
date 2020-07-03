@@ -1,14 +1,14 @@
 ---
 path: graphql-as-rest-api-data-layer
 date: 2020-06-30T00:24:47.596Z
-title: GraphQL organizing your REST apis
-description: GraphQL organizing your REST apis
+title: GraphQL organizing your REST APIs
+description: GraphQL organizing your REST APIs
 ---
 In this blog post you will learn how you can fetch related data from REST endpoints without ending up with several HTTP requests on the front-end. We will use GraphQL as a REST API data layer. 
 
-So, my goal here is to go hand's on code, building a full application from SCRATCH, so don't expect this to be short! If you are with me, let's get the party started!
+My goal here is to go hand's on code, building a full application from scratch, so don't expect this to be short! If you are with me, let's get the party started!
 
-We all know it is a good practice to structure our REST APIs with a [clear boundaries between the resources](https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9). When we have relationships between the resources we expose the entity id and then we can get the full information from that id on the proper endpoint resource. Something like this:
+We all know it is a good practice to structure REST APIs with [clear boundaries between the resources](https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9). When we have relationships between the resources we expose the entity id and then we can get the full information based on that id on the proper endpoint resource. Something like this:
 
 ```sh
 GET /movies
