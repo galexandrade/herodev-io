@@ -7,7 +7,7 @@ description: GraphQL organizing your REST APIs
 
 In this blog post, you will learn how you can fetch related data from REST endpoints without ending up with several HTTP requests on the front-end. We will use GraphQL as a REST API data layer.
 
-My goal here is to go hand's on code, building a full application from scratch, so don't expect this to be short! If you are with me, let's get the party started!
+My goal here is to go hands-on with the code, building a full application from scratch, so don't expect this to be short! If you are with me, let's get the party started!
 
 We all know it is a good practice to structure REST APIs with [clear boundaries between the resources](https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9). When we have relationships between the resources we expose the entity id and then we can get the full information based on that id on the proper endpoint resource. Something like this:
 
@@ -15,8 +15,8 @@ We all know it is a good practice to structure REST APIs with [clear boundaries 
 //GET /movies
 [
    {
-      name: 'Avangers: Infinit war',
-      link: 'youtube-trailler-link',
+      name: 'Avengers: Infinity War',
+      link: 'youtube-trailer-link',
       villain_id: 1,
       heroes_ids: [1, 2]
    }
@@ -37,11 +37,11 @@ We all know it is a good practice to structure REST APIs with [clear boundaries 
 
 So far everything looks good but, things will get more complicated on the front-end side. Let's suppose we have the following application backed by those endpoints:
 
-A list of heroes movie cards. For each card, it shows up the villain's picture and name as well as the heroes who saved the day. When clicking on a card it will open up the trailer on a separate tab.
+A list of heroes movie cards. For each card, it shows the villain’s picture and name as well as the heroes who saved the day. When clicking on a card it will open up the trailer on a separate tab.
 
 ![Heroes Movies application](/assets/heroesmovies.png "Heroes Movies application")
 
-For every movie coming from `/movies` we need to display also the villain and heroes information, but we only have id's exposed. We would have to deal with multiple API calls on the front-end to get all the data needed, and also play with `Promises` to wait for the related data. Something like this:
+For every movie coming from `/movies`, we need to display the information of the villain and the heroes but we only have id's exposed. We would have to deal with multiple API calls on the front-end to get all the data needed, and also play with `Promises` to wait for the related data. Something like this:
 
 ```
 FETCH MOVIES
@@ -52,7 +52,7 @@ ITERATE ON THE MOVIES COLLECTION. FOR EACH:
 
 You could do some magic with `Promise.all()` but even that would be a nightmare and also not performant as it will hit the endpoints several times to fetch the `villain` and `heroes` for each movie from the browser.
 
-The above application is a pretty simple one just to exemplify the pain of fetching related data. I am sure you have a clear and real example where you were struggling in the same situation.
+The above application is a pretty simple one just to show the pain of fetching related data. I am sure you have a real, clear example of when you were struggling in the same situation.
 
 GraphQL might be the hero to save the day! 🦸🏻‍♂️
 
@@ -62,9 +62,9 @@ For those that are not familiar, and is wondering what GraphQL is, here is the o
 
 Basically, you ask for something and your GraphQL server will give it to you if it is available. The data might come from different sources, but in our case, we are using our Rest APIs to fulfill the requests.
 
-It is not a software you can download, but a [specification](https://spec.graphql.org/). Following that specification, awesome libraries arose adding support for a large number of [languages and platforms](https://graphql.org/code/). In the JavaScript world [Relay](https://relay.dev/) and [Apollo](https://www.apollographql.com/) are the most popular.
+It is not a software you can download, but a [specification](https://spec.graphql.org/). Following that specification, awesome libraries have arisen adding support for a large number of [languages and platforms](https://graphql.org/code/). In the JavaScript world [Relay](https://relay.dev/) and [Apollo](https://www.apollographql.com/) are the most popular libraries.
 
-The theory is cool but, let's code! Let's build our application from scratch.
+The theory is cool, but let's code! Let's build our application from scratch.
 
 For that to work we will need to build:
 
@@ -103,7 +103,7 @@ const init = async () => {
 };
 ```
 
-It will create three endpoints `/movies`, `/villains/{id}` and `/heroes/{id}` returning some mock data as my goal here if just to focus on the GraphQL part. You can take a look [here](https://github.com/galexandrade/heroes-graphql/blob/master/rest-api-server/index.js) to see the full code.
+It will create three endpoints `/movies`, `/villains/{id}` and `/heroes/{id}` returning some mock data, as my goal here is to just focus on the GraphQL part. You can take a look [here](https://github.com/galexandrade/heroes-graphql/blob/master/rest-api-server/index.js) to see the full code.
 
 Running `yarn start` or `npm start` you should be able to start the server and hit those endpoints.
 
@@ -185,7 +185,7 @@ The exclamation mark says that property cannot be `null`.
 
 **2 - Resolvers**
 
-Resolver is the guy responsible for getting a piece of data that was requested.
+The resolver is the guy responsible for getting a piece of data that was requested.
 
 First, we have defined a resolver for `Query` and inside `getMovies`, it will be our entry point for when we query for `movies`. There it is calling a data-source (we will talk more about data-sources) to fetch our movies witch is the same response we return on the `/movies` endpoint.
 
@@ -202,11 +202,11 @@ const resolvers = {
 module.exports = resolvers;
 ```
 
-Wait? How will it load the villain and the heroes as we have defined on our type definition?
+Wait? How will it load the villain and the heroes as we have defined in our type definition?
 
-This is important!
+This is important! 👇👇
 
-There is a resolver for `Movies`. Whenever a `Movie` type is returned this resolver will be invoked to grab related data (if the user requested it). Here it has a resolver for `villain`, it basically calls a data-source and them it bring data from `/villains/{id}` with the `id` coming from the parent, I mean, the movie.
+There is a resolver for `Movies`. Whenever a `Movie` type is returned this resolver will be invoked to grab related data (if the user requested it). Here it has a resolver for `villain`, it basically calls a data-source and then it brings data from `/villains/{id}` with the `id` coming from the parent, I mean, the movie.
 
 ```javascript
 //resolvers.js
@@ -290,7 +290,7 @@ Cool! Now we have our GraphQL running! Can you feel the power? ⚡
 
 ## Front end
 
-Now, let's connect the last piece missing on our puzzle, the front-end.
+Now, let’s connect the final missing piece of our puzzle, the front-end.
 
 My focus here is on the GraphQL part, so, I'm not concerned about styling or testing the components properly.
 
@@ -379,7 +379,7 @@ const App = () => {
 export default App
 ```
 
-`useQuery` returns and object containing `loading`, `error`, and `data`. Inside `data` will be available all the movies including everything we asked such as villain and heroes.
+`useQuery` returns an object containing `loading`, `error`, and `data`. Inside `data`, all the movies we asked for will be included, containing the information about the villains and heroes.
 
 Now we just need to render it. On the code above I am rendering each `movie` with the component `MovieCard`. Let's take a closer look at that component:
 
@@ -417,6 +417,6 @@ GraphQL brings great benefits:
 2. No need to make several requests to grab related data from other endpoints.
 3. Less network traffic between your front-end application and backend as GraphQL might be on the same network as the REST Server.
 4. Better user experience as the user will probably see fewer spinners and it will be faster (much faster when using cache).
-5. Much more benefits that cannot fit on this article...
+5. Many more benefits that cannot fit in this article... :)
 
 Enjoy it!
