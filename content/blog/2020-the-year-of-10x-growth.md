@@ -6,6 +6,10 @@ description: >-
   It seems 2020 was the year where everything stopped but, looking back after 9
   months of pandemy we can see that we actually grew much more than we thought.
 ---
+Some headline.
+
+![Dinosaurs in drumheller](/assets/dinosaur-drumheller.png "2020 seems bigger but we are stronger")
+
 WHY:
 
 POINTS TO COVER:
