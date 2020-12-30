@@ -6,13 +6,13 @@ description: >-
   It seems 2020 was the year where everything stopped but, looking back after 9
   months of pandemy we can see that we actually grew much more than we thought.
 ---
-Some headline.
+How to grow in a year we see everything stopping for the first time in history? In this blog post, I will share what I learned and what has been working for me.
 
 ![Dinosaurs in drumheller](/assets/dinosaur-drumheller.png "2020 seems bigger but we are stronger")
 
 WHY:
 
-To leave a record of how 2020 was and how it was possible to grow in a year full of uncertanties.
+To leave a record of how 2020 was and how it was possible to grow in a year full of uncertainties.
 
 POINTS TO COVER:
 
