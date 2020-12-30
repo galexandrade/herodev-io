@@ -12,6 +12,25 @@ Some headline.
 
 WHY:
 
+To leave a record of how 2020 was and how it was possible to grow in a year full of uncertanties.
+
 POINTS TO COVER:
 
+* How it started
+  * Working on office
+  * Looking forward for the next summer retreat
+* Turning point
+  * Reading the book "Hight performance habits"
+  * Planner
+* What was learned this year?
+  * Started sharing on the blog
+  * Learned GraphQL
+  * Built a Chrome Extension
+  * Epic React
+  * Books read
+
 CONCLUSION:
+
+* What expect for the next year
+* How to grow even more
+* Advice for those starting
