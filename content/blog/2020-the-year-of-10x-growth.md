@@ -60,7 +60,7 @@ With this book, I learned how to effectively plan my day. That was a game-change
 
 ## **Loved ones**
 
-After learning how to plan my day properly and have a better life balance, I was able to find time to stop and play with the kids without worrying about a project or something else I had on my to-do list. I was finally there! Present!
+After learning how to plan my day properly and have a better life balance, I was able to find time to stop and enjoy the time spent with my family without worrying about a project or something else I had on my to-do list. I was finally there! Present!
 
 ![Spending quality time with family](/assets/cycling-with-family.jpg "Spending quality time with family")
 
