@@ -46,7 +46,9 @@ More time worked does not mean more things done!
 
 During the pandemic, I learned that building good morning habits can exponentially increase performance so, I start reading for at least 20 minutes and exercising every day (at least stretching). It is amazing how it improves concentration and focus (we devs really need those to code).
 
-It is funny because I was not the kind of person who enjoyed reading but now I love it! One of the books that really helped me was _The high performance habits_ written by Brendon Burchardt.
+It is funny because I was not the kind of person who enjoyed reading but now I love it! One of the books that really helped me was _High performance habits_ written by Brendon Burchard.
+
+![High performance habits](/assets/best-personal-development-books-1-e1555808044735-1024x894.webp "High performance habits")
 
 With this book, I learned how to effectively plan my day. That was a game-changer. I had no idea how many distractions I had until I started planning my day and as a result, I started getting way more things done in all areas of my life. 
 
@@ -58,16 +60,16 @@ This pandemic came to teach me to have more quality time with my family. To enjo
 
 **Learning**
 
-* Started sharing on the blog
-* Learned GraphQL
-* Built a Chrome Extension
-* Epic React
-* Books read
+It is so easy to just know the shallow, to just make it work without understanding how it is working but when it comes to mastering something it requires passion and time.
 
+In the software development world, there are thousands of thousands of languages, frameworks, and tools. It is impossible to master all of them! This year I decided to focus on what I love doing: Front end. And master it!
 
+With this clarity about my carer, I could target the areas I needed to improve so, I invested in learning with those who are reference. I am so proud I was able to take the Epic React course by Kent C. Dots. It has sky rocked my React skills (thanks Kent). 
 
-CONCLUSION:
+I also started this tech blog to share my learnings We only learn when we help others! (this is also stretching my writing skills).
 
-* What expect for the next year
-* How to grow even more
-* Advice for those starting
+...
+
+See? For me, this was a year of 10x growth!
+
+I hope everything gets back to normal earlier in 2021, but the lessons 2020 taught me will last forever. Thanks to those learnings I can foresee a bright new year with also a lot of achievements as a result of growth.
