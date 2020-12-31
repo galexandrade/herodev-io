@@ -16,12 +16,18 @@ What a year!
 
 For those not aware (maybe living on another planet or reading this 20 years from now), this year the humanity was hit hard by a global pandemic caused by the CORONA virus. Since the pandemic has declared more than 1.79 million people died worldwide (by the moment I am writing this) causing fear and anxiety.
 
-The measures to hold the virus spread was hard for everyone:\
-😷 We started using masks \
-🤝 No more hugs, high-fives, and handshakes \
-📚 Schools closed so, kids had to stay at home (at least for a couple of months) \
-✈️ Flights were restricted \
-🏡 Working from home became the new norm \
+The measures to hold the virus spread was hard for everyone:
+
+😷 We started using masks
+
+🤝 No more hugs, high-fives, and handshakes
+
+📚 Schools closed so, kids had to stay at home (at least for a couple of months)
+
+✈️ Flights were restricted
+
+🏡 Working from home became the new norm
+
 And much more...
 
 In a world that was running at the speed of light, always producing more, selling more, making more profits, in 2020 it was forced to slow down!
