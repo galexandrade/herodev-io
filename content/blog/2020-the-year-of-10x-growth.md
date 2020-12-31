@@ -6,24 +6,23 @@ description: >-
   It seems 2020 was the year where everything stopped but, looking back after 9
   months of pandemy we can see that we actually grew much more than we thought.
 ---
-How to grow in a year we see everything slowing down for the first time in history? In this blog post, I will share what I learned and what has been working for me.
+How to grow in a year we see everything slowing down for the first time in history? In this blog post, I will share what I learned and how to measure growth properly.
 
 ![Dinosaurs in drumheller](/assets/10x-growth.webp "2020 seems bigger but we are stronger")
 
-This is not going to be a technical blog post, but instead, I thought 2020 deserves a special place here in the blog. 
+This is not going to be a technical blog post, but instead, I thought 2020 deserved a special place here in the blog. 
 
 What a year!
 
 For those not aware (maybe living on another planet or reading this 20 years from now), this year the humanity was hit hard by a global pandemic caused by the CORONA virus. Since the pandemic has declared more than 1.79 million people died worldwide (by the moment I am writing this) causing fear and anxiety.
 
-The measures to hold the virus spread was hard for everyone:
-
-* We started using masks
-* No more hugs and high-fives
-* Schools closed so, kids had to stay at home (at least for a couple of months)
-* Flights were restricted
-* Working from home became the new norm
-* And much more...
+The measures to hold the virus spread was hard for everyone:\
+😷 We started using masks \
+🤝 No more hugs, high-fives, and handshakes \
+📚 Schools closed so, kids had to stay at home (at least for a couple of months) \
+✈️ Flights were restricted \
+🏡 Working from home became the new norm \
+And much more...
 
 In a world that was running at the speed of light, always producing more, selling more, making more profits, in 2020 it was forced to slow down!
 
