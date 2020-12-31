@@ -46,7 +46,7 @@ But 2020 came to teach us how to see growth from a different perspective:
 
 ## **Health (physical and emotional)**
 
-As growth is usually measured by achieving new statuses and acquiring new things we also tend to work more hours to justify to ourselves that we are making progress some towards those goals. That is an illusion! We only get more stressed, anxious, and tend don't take care of our health, and suddenly we have to spend all that money acquired overtime in a tentative to restore our health back.
+As growth is usually measured by achieving new statuses and acquiring new things we also tend to work more hours to justify to ourselves that we are making progress some towards those goals. That is an illusion! We only get more stressed, anxious, and tend don't take care of our health, and suddenly we have to spend all that money acquired overtime in a tentative to restore our health.
 
 More time worked does not mean more things done!
 
