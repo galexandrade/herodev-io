@@ -64,7 +64,7 @@ After learning how to plan my day properly and have a better life balance, I was
 
 ![Spending quality time with family](/assets/cycling-with-family.jpg "Spending quality time with family")
 
-This pandemic came to teach me that no matter how successful you are in your professional career, your kids only want to play with you. They only want you to be there and enjoy the moment.
+This pandemic came to teach me that no matter how successful you are in your professional career, what your kids only want is to play with you. They only want you to be there and enjoy the moment.
 
 ## **Learning**
 
