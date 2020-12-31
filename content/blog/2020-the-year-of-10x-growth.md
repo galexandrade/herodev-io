@@ -6,53 +6,65 @@ description: >-
   It seems 2020 was the year where everything stopped but, looking back after 9
   months of pandemy we can see that we actually grew much more than we thought.
 ---
-How to grow in a year we see everything stopping for the first time in history? In this blog post, I will share what I learned and what has been working for me.
+How to grow in a year we see everything slowing down for the first time in history? In this blog post, I will share what I learned and what has been working for me.
 
 ![Dinosaurs in drumheller](/assets/dinosaur-drumheller.png "2020 seems bigger but we are stronger")
 
-This is not going to be a technical blog post, but instead, I thoght 2020 deserves a special place here in the blog. 
+This is not going to be a technical blog post, but instead, I thought 2020 deserves a special place here in the blog. 
 
 What a year!
 
-For those not aware (maybe living on another planet or reading this 20 years later), this year the humanity was hit hard by a global pandemic caused by the CORONA virus. Since the pandemic has been declared more than 1.79 million people died worldwide at the moment I am writing this (Dec 29th, 2020).
+For those not aware (maybe living on another planet or reading this 20 years from now), this year the humanity was hit hard by a global pandemic caused by the CORONA virus. Since the pandemic has declared more than 1.79 million people died worldwide (by the moment I am writing this) causing fear and anxiety.
 
-As a result, everyone got scared (no one wants to die) and hard were the measures to hold the virus spread:
+The measures to hold the virus spread was har for everyone:
 
 * We started using masks
 * No more hugs and high-fives
-* Schools closed so, kids had to stay at home
+* Schools closed so, kids had to stay at home (at least for a couple of months)
+* Flights were restricted
 * Working from home was the new norm now
-* Restaurants had to reinvent themselves to keep serving
 * A lot of people lost their jobs and had to rely on support programs
 * And much more...
 
-Undoubtedly it was the hardest year ever but, this reminds me of this iconic quote: 
+In a world that was running at the speed of light, always producing more, selling more, making more profits, in 2020 it was forced to slow down!
 
-> We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard.
->
-> \
->
->
-> ― John F. Kennedy
+You might be wondering, the post title tells about 10x growth, how is growth possible if everything has slowed down? It depends on how do you measure growth.
 
-WHY:
+We usually use to measure growth only by tangible variables:
 
-To leave a record of how 2020 was and how it was possible to grow in a year full of uncertainties.
+* status: job title, promotions
+* deliveries: projects finished, deadlines accomplished,
+* and material achievements: new house, new car.
 
-POINTS TO COVER:
+But 2020 came to teach us how to see growth from a different perspective:
 
-* How it started
-  * Working on office
-  * Looking forward to the next summer retreat
-* Turning point
-  * Reading the book "Hight performance habits"
-  * Planner
-* What was learned this year?
-  * Started sharing on the blog
-  * Learned GraphQL
-  * Built a Chrome Extension
-  * Epic React
-  * Books read
+**Health (physical and emotional)**
+
+As growth is usually measured by achieving new statuses and acquiring new things we also tend to work more hours to justify to ourselves that we are making progress some towards those goals. That is an illusion! We tend to get more stressed, anxious, and don't take care of our health. Sonner we have to spend all that money acquired to try to get our health back.
+
+More time worked does not mean more things done!
+
+During the pandemic, I learned that building good morning habits can exponentially increase performance so, I start reading for at least 20 minutes and exercising every day (at least stretching). It is amazing how it improves concentration and focus (we devs really need those to code).
+
+It is funny because I was not the kind of person who enjoyed reading but now I love it! One of the books that really helped me was _The high performance habits_ written by Brendon Burchardt.
+
+With this book, I learned how to effectively plan my day. That was a game-changer. I had no idea how many distractions I had until I started planning my day and as a result, I started getting way more things done in all areas of my life. 
+
+**Loved ones**
+
+After learning how to plan my day properly and have a better life balance, I was able to find time to stop and play with the kids without worrying about a project or something else I had on my to-do list. I was finally there! Present!
+
+This pandemic came to teach me to have more quality time with my family. To enjoy more! To value small details!
+
+**Learning**
+
+* Started sharing on the blog
+* Learned GraphQL
+* Built a Chrome Extension
+* Epic React
+* Books read
+
+
 
 CONCLUSION:
 
