@@ -49,7 +49,7 @@ More time worked does not mean more things done!
 
 During the pandemic, I learned that building good morning habits can exponentially increase performance so, I start reading for at least 20 minutes and exercising every day (at least stretching). It is amazing how it improves concentration and focus (we devs really need those to code).
 
-It is funny because I was not the kind of person who enjoyed reading but now I love it! One of the books that really helped me was _High performance habits_ written by Brendon Burchard.
+It is funny because I was not the kind of person who enjoyed reading but now I love it! One of the books that really helped me was [_High performance habits_](https://brendon.mykajabi.com/hph-book-step-1) written by Brendon Burchard. No, I am not earning anything for recommending his book.
 
 ![High performance habits](/assets/best-personal-development-books-1-e1555808044735-1024x894.webp "High performance habits")
 
@@ -59,6 +59,8 @@ With this book, I learned how to effectively plan my day. That was a game-change
 
 After learning how to plan my day properly and have a better life balance, I was able to find time to stop and play with the kids without worrying about a project or something else I had on my to-do list. I was finally there! Present!
 
+![Spending quality time with family](/assets/cycling-with-family.jpg "Spending quality time with family")
+
 This pandemic came to teach me to have more quality time with my family. To enjoy more! To value small details!
 
 ## **Learning**
@@ -67,9 +69,9 @@ It is so easy to just know the shallow, to just make it work without understandi
 
 In the software development world, there are thousands of thousands of languages, frameworks, and tools. It is impossible to master all of them! This year I decided to focus on what I love doing: Front end. And master it!
 
-With this clarity about my carer, I could target the areas I needed to improve so, I invested in learning with those who are reference. I am so proud I was able to take the Epic React course by Kent C. Dots. It has sky rocked my React skills (thanks Kent). 
+With this clarity about my carer, I could target the areas I needed to improve so, I invested in learning with those who are reference. I am so proud I was able to take the [Epic React course](epicreact.dev/) by Kent C. Dots. It has sky rocked my React skills (thanks Kent). 
 
-I also started this tech blog to share my learnings We only learn when we help others! (this is also stretching my writing skills).
+I also started this tech blog to share my learnings. We only learn when we help others! (this is also stretching my writing skills).
 
 ...
 
