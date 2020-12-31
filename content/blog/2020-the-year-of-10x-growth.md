@@ -78,7 +78,7 @@ I also started this tech blog to share my learnings. We only learn when we help 
 
 ...
 
-See? For me, this was a year of 10x growth!
+See? For me, this was indeed a year of 10x growth!
 
 It just depends on how growth is measured. Although we all had to slow down, it helped me to value what money cannot buy!
 
