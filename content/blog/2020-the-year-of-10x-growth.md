@@ -50,7 +50,7 @@ As growth is usually measured by achieving new statuses and acquiring new things
 
 More time worked does not mean more things done!
 
-During the pandemic, I learned that building good morning habits can exponentially increase performance so, I start reading for at least 20 minutes and exercising every day (at least stretching). It is amazing how it improves concentration and focus (we devs really need those to code).
+During the pandemic, I learned that building morning habits can exponentially increase performance so, I start building a morning routine that includes reading for at least 20 minutes and exercising every day (at least stretching). It is amazing how it improves concentration and focus (we devs really need those to code).
 
 It is funny because I was not the kind of person who enjoyed reading but now I love it! One of the books that really helped me was [_High performance habits_](https://brendon.mykajabi.com/hph-book-step-1) written by Brendon Burchard. No, I am not earning anything for recommending his book.
 
