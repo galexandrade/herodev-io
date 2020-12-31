@@ -14,7 +14,7 @@ This is not going to be a technical blog post, but instead, I will share some ti
 
 What a year!
 
-For those not aware (maybe living on another planet or reading this 20 years from now), this year the humanity was hit hard by a global pandemic caused by the CORONA virus. Since the pandemic has declared more than 1.79 million people died worldwide (by the moment I am writing this) causing fear and anxiety.
+For those not aware (maybe living on another planet or reading this 20 years from now), this year the humanity was hit hard by a global pandemic caused by the CORONA virus. Since the pandemic has declared more than 1.79 million people died worldwide (and counting) causing fear and anxiety.
 
 The measures to hold the virus spread was hard for everyone:
 
@@ -32,15 +32,13 @@ And much more...
 
 In a world that was running at the speed of light, always producing more, selling more, making more profits, in 2020 it was forced to slow down!
 
-You might be wondering, the post title tells about 10x growth.
+You might be wondering, the post title tells about 10x growth, right?
 
 # How to grow when everything slowed down?
 
-It depends on how do you measure growth.
+It depends on how do you measure growth. We usually measure it only by tangible variables:
 
-We usually measure growth only by tangible variables:
-
-* Status: job title, promotions
+* Position: job title, promotions
 * Deliveries: projects finished, deadlines accomplished
 * Material achievements: new house, new car, new something else
 
