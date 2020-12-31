@@ -10,7 +10,7 @@ How to grow in a year we see everything slowing down for the first time in histo
 
 ![Dinosaurs in drumheller](/assets/10x-growth.webp "2020 seems bigger but we are stronger")
 
-This is not going to be a technical blog post, but instead, I thought 2020 deserved a special place here in the blog. 
+This is not going to be a technical blog post, but instead, I will share some tips that have been working for me to be more productive and have a balanced life that everyone, including devs, could benefit from it. 
 
 What a year!
 
