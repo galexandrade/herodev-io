@@ -30,7 +30,7 @@ The measures to hold the virus spread was hard for everyone:
 
 And much more...
 
-In a world that was running at the speed of light, always producing more, selling more, making more profits, in 2020 it was forced to slow down!
+In a world that was running at the speed of light, always producing more, selling more, making more profits, in 2020, it was forced to slow down!
 
 You might be wondering, the post title tells about 10x growth, right?
 
@@ -46,13 +46,13 @@ But 2020 came to teach us how to see growth from a different perspective:
 
 ## **Health (physical and emotional)**
 
-As growth is usually measured by achieving new statuses and acquiring new things we also tend to work more hours to justify to ourselves that we are making progress some towards those goals. That is an illusion! We only get more stressed, anxious, and tend don't take care of our health, and suddenly we have to spend all that money acquired overtime in a tentative to restore our health.
+As growth is usually measured by achieving new statuses and acquiring new things we also tend to work more hours to justify to ourselves that we are making some progress towards those goals. That is an illusion! We only get more stressed, anxious, and we tend to don't take care of our health, and suddenly we have to spend all that money acquired overtime in a tentative to restore our health.
 
 More time worked does not mean more things done!
 
-During the pandemic, I learned that building morning habits can exponentially increase performance so, I start building a morning routine that includes reading for at least 20 minutes and exercising every day (at least stretching). It is amazing how it improves concentration and focus (we devs really need those to code).
+During the pandemic, I learned that building morning habits can exponentially increase performance so, I start building a morning routine that includes reading for at least 20 minutes and exercising every day (at least stretching). It is amazing how it improves concentration and focus (we devs need those to code).
 
-It is funny because I was not the kind of person who enjoyed reading but now I love it! One of the books that really helped me was [_High performance habits_](https://brendon.mykajabi.com/hph-book-step-1) written by Brendon Burchard. No, I am not earning anything for recommending his book.
+It is funny because I was not the kind of person who enjoyed reading but now I love it! One of the books that helped me was [_High performance habits_](https://brendon.mykajabi.com/hph-book-step-1) written by Brendon Burchard. No, I am not earning anything for recommending his book.
 
 ![High performance habits](/assets/best-personal-development-books-1-e1555808044735-1024x894.webp "High performance habits")
 
@@ -68,7 +68,7 @@ This pandemic came to teach me that no matter how successful you are in your pro
 
 ## **Learning**
 
-It is so easy to just know the shallow or to just make it work without understanding how it is actually working. When it comes to mastering something it requires passion and time.
+It is so easy to just know the shallow or to just make it work without understanding how it is working. When it comes to mastering something it requires passion and time.
 
 In the software development world, there are thousands of thousands of languages, frameworks, and tools. It is impossible to master all of them! This year I decided to focus on what I love doing: Front end. And master it!
 
