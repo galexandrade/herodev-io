@@ -72,7 +72,7 @@ It is so easy to just know the shallow or to just make it work without understan
 
 In the software development world, there are thousands of thousands of languages, frameworks, and tools. It is impossible to master all of them! This year I decided to focus on what I love doing: Front end. And master it!
 
-With this clarity about my carer, I could target the areas I needed to improve so, I invested in learning with those who are reference. I am so proud I was able to take the [Epic React course](epicreact.dev/) by Kent C. Dots. It has sky rocked my React skills (thanks Kent). 
+With this clarity in mind about my carer, I could target the areas I needed to improve so, I invested in learning with those who are reference. I am so proud I was able to take the [Epic React course](epicreact.dev/) by Kent C. Dots. It has sky rocked my React skills (thanks Kent). 
 
 I also started this tech blog to share my learnings. We only learn when we help others! (this is also stretching my writing skills).
 
