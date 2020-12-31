@@ -8,7 +8,7 @@ description: >-
 ---
 How to grow in a year we see everything slowing down for the first time in history? In this blog post, I will share what I learned and what has been working for me.
 
-![Dinosaurs in drumheller](/assets/dinosaur-drumheller.png "2020 seems bigger but we are stronger")
+![Dinosaurs in drumheller](/assets/10x-growth.webp "2020 seems bigger but we are stronger")
 
 This is not going to be a technical blog post, but instead, I thought 2020 deserves a special place here in the blog. 
 
