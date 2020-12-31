@@ -33,11 +33,11 @@ You might be wondering, the post title tells about 10x growth.
 
 It depends on how do you measure growth.
 
-We usually use to measure growth only by tangible variables:
+We usually measure growth only by tangible variables:
 
-* status: job title, promotions
-* deliveries: projects finished, deadlines accomplished,
-* and material achievements: new house, new car.
+* Status: job title, promotions
+* Deliveries: projects finished, deadlines accomplished
+* Material achievements: new house, new car, new something else
 
 But 2020 came to teach us how to see growth from a different perspective:
 
