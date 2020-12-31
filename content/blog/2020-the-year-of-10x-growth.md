@@ -34,7 +34,7 @@ In a world that was running at the speed of light, always producing more, sellin
 
 You might be wondering, the post title tells about 10x growth.
 
-# How is growth possible if everything has slowed down?
+# How to grow when everything slowed down?
 
 It depends on how do you measure growth.
 
