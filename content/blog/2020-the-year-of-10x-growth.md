@@ -68,7 +68,7 @@ This pandemic came to teach me that no matter how successful you are in your pro
 
 ## **Learning**
 
-It is so easy to just know the shallow, to just make it work without understanding how it is working but when it comes to mastering something it requires passion and time.
+It is so easy to just know the shallow or to just make it work without understanding how it is actually working. When it comes to mastering something it requires passion and time.
 
 In the software development world, there are thousands of thousands of languages, frameworks, and tools. It is impossible to master all of them! This year I decided to focus on what I love doing: Front end. And master it!
 
