@@ -16,19 +16,22 @@ What a year!
 
 For those not aware (maybe living on another planet or reading this 20 years from now), this year the humanity was hit hard by a global pandemic caused by the CORONA virus. Since the pandemic has declared more than 1.79 million people died worldwide (by the moment I am writing this) causing fear and anxiety.
 
-The measures to hold the virus spread was har for everyone:
+The measures to hold the virus spread was hard for everyone:
 
 * We started using masks
 * No more hugs and high-fives
 * Schools closed so, kids had to stay at home (at least for a couple of months)
 * Flights were restricted
-* Working from home was the new norm now
-* A lot of people lost their jobs and had to rely on support programs
+* Working from home became the new norm
 * And much more...
 
 In a world that was running at the speed of light, always producing more, selling more, making more profits, in 2020 it was forced to slow down!
 
-You might be wondering, the post title tells about 10x growth, how is growth possible if everything has slowed down? It depends on how do you measure growth.
+You might be wondering, the post title tells about 10x growth.
+
+# How is growth possible if everything has slowed down?
+
+It depends on how do you measure growth.
 
 We usually use to measure growth only by tangible variables:
 
@@ -38,7 +41,7 @@ We usually use to measure growth only by tangible variables:
 
 But 2020 came to teach us how to see growth from a different perspective:
 
-**Health (physical and emotional)**
+## **Health (physical and emotional)**
 
 As growth is usually measured by achieving new statuses and acquiring new things we also tend to work more hours to justify to ourselves that we are making progress some towards those goals. That is an illusion! We tend to get more stressed, anxious, and don't take care of our health. Sonner we have to spend all that money acquired to try to get our health back.
 
@@ -52,13 +55,13 @@ It is funny because I was not the kind of person who enjoyed reading but now I l
 
 With this book, I learned how to effectively plan my day. That was a game-changer. I had no idea how many distractions I had until I started planning my day and as a result, I started getting way more things done in all areas of my life. 
 
-**Loved ones**
+## **Loved ones**
 
 After learning how to plan my day properly and have a better life balance, I was able to find time to stop and play with the kids without worrying about a project or something else I had on my to-do list. I was finally there! Present!
 
 This pandemic came to teach me to have more quality time with my family. To enjoy more! To value small details!
 
-**Learning**
+## **Learning**
 
 It is so easy to just know the shallow, to just make it work without understanding how it is working but when it comes to mastering something it requires passion and time.
 
