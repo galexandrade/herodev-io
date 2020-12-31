@@ -77,4 +77,6 @@ I also started this tech blog to share my learnings. We only learn when we help 
 
 See? For me, this was a year of 10x growth!
 
+It just depends on how growth is measured. Although we all had to slow down, it helped me to value what money cannot buy!
+
 I hope everything gets back to normal earlier in 2021, but the lessons 2020 taught me will last forever. Thanks to those learnings I can foresee a bright new year with also a lot of achievements as a result of growth.
