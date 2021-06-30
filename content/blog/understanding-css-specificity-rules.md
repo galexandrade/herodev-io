@@ -10,7 +10,7 @@ If you have ever worked with CSS, I bet you already faced a situation where some
 
 ![Magic](/assets/magic.gif)
 
-Using \`!important\` is basically overriding one of the most important rules of CSS, the specificity rule. To know how to avoid it we first need to understand what a wreck is this SPECIFICITY RULE. So, let's deep dive into it.
+Using `!important` is basically overriding one of the most important rules of CSS, the specificity rule. To know how to avoid it we first need to understand what a wreck is this SPECIFICITY RULE. So, let's deep dive into it.
 
 Given the following code, guess what would be the color for boxes 1, 2 and 3.
 
@@ -45,9 +45,9 @@ Given the following code, guess what would be the color for boxes 1, 2 and 3.
 
 Interesting enough, there is no red color in any of the boxes. Check the [code sandbox example](https://codesandbox.io/s/blue-sun-s8vcv?file=/index.html) out and play with it live.
 
-Now, try adding an \`!important\` to the \`body div\` selector and see what happens.
+Now, try adding an `!important` to the `body div` selector and see what happens.
 
-```html
+```css
 body div {
    background-color: red !important;
 }
@@ -57,7 +57,7 @@ Yes. Now all the boxes are red.
 
 ![Boxes](/assets/screen-shot-2021-06-30-at-12.37.46-pm.png)
 
-The \`!important\` is jumping the line and getting ahead of all the other rules that were already in queue defined by the priority (also called SPECIFICITY).
+The `!important` is jumping the line and getting ahead of all the other rules that were already in queue defined by the priority (also called SPECIFICITY).
 
 ![Cut the line](/assets/cuting-line.gif)
 
@@ -71,7 +71,7 @@ To make it clear, let's give some numbers to the selectors above:
 
 ![Ranking selectors](/assets/screen-shot-2021-06-30-at-1.33.55-pm.png)
 
-As we can see, the \`#box-2\` selector has the priority as it has a higher score on category A, followed by \`body div:first-of-type.box\` which has a higher score on category B than the remaining ones. Next comes the \`.box\` selector followed by the \`body div\` in the last position in the priority list.
+As we can see, the `#box-2` selector has the priority as it has a higher score on category A, followed by `body div:first-of-type.box` which has a higher score on category B than the remaining ones. Next comes the `.box` selector followed by the `body div` in the last position in the priority list.
 
 You might be wondering what in fact are those categories. Here they are:
 
@@ -85,12 +85,12 @@ This image, created by [Estelle Weyl](https://estelle.github.io/CSS/selectors/sp
 
 ![Specificity table](/assets/screen-shot-2021-06-30-at-1.52.03-pm.png)
 
-As you can see, the last two items in the table are \`inline styles\` and the \`!important\` statement. They are skipping all that hierarchy that CSS defines and are going straight to the front of the queue.
+As you can see, the last two items in the table are `inline styles` and the `!important` statement. They are skipping all that hierarchy that CSS defines and are going straight to the front of the queue.
 
 # Conclusion
 
-Using \`!important\` is much like using a nuclear explosion to stop the foxes from killing your chickens. Yes, the foxes will be killed, but so will the chickens. And the neighbourhood. It also makes debugging your CSS a nightmare (from personal, empirical, experience).
+Using `!important` is much like using a nuclear explosion to stop the foxes from killing your chickens. Yes, the foxes will be killed, but so will the chickens. And the neighbourhood. It also makes debugging your CSS a nightmare (from personal, empirical, experience).
 
-I know, it takes time and practice to master this specificity rule but, understanding that there is a hierarchy order for the selectors and knowing where to reference this table will save you a ton of time and will help you avoid using \`!important\` as a silver bullet.
+I know, it takes time and practice to master this specificity rule but, understanding that there is a hierarchy order for the selectors and knowing where to reference this table will save you a ton of time and will help you avoid using `!important` as a silver bullet.
 
 I hope this might help you.
