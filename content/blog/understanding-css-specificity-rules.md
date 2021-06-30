@@ -59,6 +59,8 @@ Yes. Now all the boxes are red.
 
 ![Boxes](/assets/screen-shot-2021-06-30-at-12.37.46-pm.png)
 
-The \`!important\` is jumping the line and getting ahead of all the other rules that were already in queue defined by the priority.
+The \`!important\` is jumping the line and getting ahead of all the other rules that were already in queue defined by the priority (also called SPECIFICITY).
 
 ![Cut the line](/assets/cuting-line.gif)
+
+# How does this specificity rule work?
