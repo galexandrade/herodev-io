@@ -46,3 +46,19 @@ Given the following code, guess what would be the color for boxes 1, 2 and 3.
 ```
 
 Interesting enough, there is no blue color in any of the boxes. Check the [code sandbox example](https://codesandbox.io/s/blue-sun-s8vcv?file=/index.html) out and play with it live.
+
+Now, try adding an \`!important\` to the \`body div\` selector and see what happens.
+
+```html
+body div {
+   background-color: red !important;
+}
+```
+
+Yes. Now all the boxes are red. 
+
+![Boxes](/assets/screen-shot-2021-06-30-at-12.37.46-pm.png)
+
+The \`!important\` is jumping the line and getting ahead of all the other rules that were already in queue defined by the priority.
+
+![Cut the line](/assets/cuting-line.gif)
