@@ -87,6 +87,10 @@ This image, created by [Estelle Weyl](https://estelle.github.io/CSS/selectors/sp
 
 As you can see, the last two items in the table are `inline styles` and the `!important` statement. They are skipping all that hierarchy that CSS defines and are going straight to the front of the queue.
 
+It is also worth noting that universal selector (`*,+,~s` ) and combinators do not increase specificity, that is why the first item on the table has score 0-0-0.
+
+The same happens with the negation selector (`:not(x)`) which has no value, but the argument it takes has value.
+
 # Conclusion
 
 Using `!important` is much like using a nuclear explosion to stop the foxes from killing your chickens. Yes, the foxes will be killed, but so will the chickens. And the neighbourhood. It also makes debugging your CSS a nightmare (from personal, empirical, experience).
