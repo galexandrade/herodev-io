@@ -6,11 +6,11 @@ description: >-
   CSS specificity rules are tricky to understand. In this blog post we will
   learn how to master it.
 ---
-If you have ever worked with CSS, I bet you already faced a situation where some CSS changes were not being applied and using the \`!import\` statement at the end of it magically worked but, you had no idea why.
+If you have ever worked with CSS, I bet you already faced a situation where some CSS changes were not being applied, no sense at all. The solution ended up using the \`!import\` statement at the end of it. It magically worked! But, you had no idea why.
 
 ![Magic](/assets/magic.gif)
 
-Using `!important` is basically overriding one of the most important rules of CSS, the specificity rule. To know how to avoid it we first need to understand what a wreck is this SPECIFICITY RULE. So, let's deep dive into it.
+`!important` is basically overriding one of the most important rules of CSS, the **specificity rule**. To understand how to avoid it we first need to master this concept. So, let's deep dive into it.
 
 Given the following code, guess what would be the color for boxes 1, 2 and 3.
 
