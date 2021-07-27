@@ -1,6 +1,6 @@
 ---
 path: understanding-css-specificity-rules
-date: 2021-06-30T17:14:35.768Z
+date: 2021-07-28T03:00:00.000Z
 title: Understanding CSS specificity rules
 description: >-
   CSS specificity rules are tricky to understand. In this blog post we will
