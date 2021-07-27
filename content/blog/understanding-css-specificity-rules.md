@@ -6,6 +6,8 @@ description: >-
   CSS specificity rules are tricky to understand. In this blog post we will
   learn how to master it.
 ---
+![Important](/assets/important.png "CSS specificity rules are tricky to understand. In this blog post we will learn how to master it.")
+
 If you have ever worked with CSS, I bet you have already faced a situation where some CSS changes were not getting applied as expected, making no sense at all. The solution ended up using the `!important` statement at the end of it. It magically worked! But you had no idea why.
 
 ![Magic](/assets/magic.gif)
