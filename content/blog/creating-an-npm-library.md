@@ -6,8 +6,6 @@ description: Creating an NPM library can be overwhelming. Let's make it simple t
 ---
 Creating an NPM library can be overwhelming. Let's make it simple together!
 
-
-
 * Open your terminal and let's start creating our library using [create-react-library.](https://github.com/transitive-bullshit/create-react-library)
 * Run the command to create your library: \`npx create-react-library\`. It will ask you a couple of questions:
   * Package Name: It should be the name you want it to show up on NPM, for example, \`sous-chef-icons\`.
@@ -25,4 +23,28 @@ Creating an NPM library can be overwhelming. Let's make it simple together!
   * \`yarn test:unit\` - You can use this to run your local javascript tests.
   * \`yarn test:watch\` - As you love TDD, this will keep your tests watch for changes and then re-execute the tests again.
   * \`yarn deploy\` - If you want to deploy your example application using GitHub Pages, this command will do the trick for you.
+
+# Icon library
+
+Customize your Prettier:
+
+* Delete \`.editorconfig\`
+* Update your \`.prettierrc\`
+  ```
+  {
+     "tabWidth": 4,
+     "singleQuote": true,
+     "printWidth": 80,
+     "trailingComma": "none"
+  }
+  ```
+* Update \`.eslintrc\`
+  * On the \`extends\` remove the following entries: \`standard\` and \`plugin:prettier/recommended\`.
+  * Add \`"jsx-quotes": 0\` to the \`rules\`.
+
+Add Icons
+
+* Add \`yarn add @svgr/cli --dev\`.
+* Add all your icons into the folder \`src/svg\`.
+* Create an empty folder \`src/components\`.
 *
