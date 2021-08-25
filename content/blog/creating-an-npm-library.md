@@ -47,4 +47,7 @@ Add Icons
 * Add \`yarn add @svgr/cli --dev\`.
 * Add all your icons into the folder \`src/svg\`.
 * Create an empty folder \`src/components\`.
+* Configure \`@svgr/cli\` to use Typescript
+  * Create the file \`.svgrrc.js\`\[Add print]
+  * Create the template \`typescript-template.js\`
 *
