@@ -50,4 +50,12 @@ Add Icons
 * Configure \`@svgr/cli\` to use Typescript
   * Create the file \`.svgrrc.js\`\[Add print]
   * Create the template \`typescript-template.js\`
-*
+* Execute the command to convert *.svg files into components: \`npx @svgr/cli -d src src/assets  --template typescript-template.js --typescript\`
+
+PUBLISH
+
+* Create a GIT repo
+* Link your repo \`git remote add origin git@github.com:7shifts/sous-chef-icons.git\`
+* Push your changes
+* Publish the example to GitHub Pages: \`yarn deploy\`
+* Publish your NPM package: \`npm publish --access=public\`
