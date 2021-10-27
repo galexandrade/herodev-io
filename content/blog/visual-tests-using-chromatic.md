@@ -14,23 +14,17 @@ Imagine now, by mistake, someone changes the primary color, let's say red. All t
 
 In order to catch this earlier, we need to set up visual tests, also known as regression tests. Let's take a look at what it is.
 
-​
-
 # Visual tests
 
 If we had to do a manual visual test we probably would open in the browser the app running in prod and the app running on the branch with the changes, and we would manually compare the components to ensure they look the same. This might work at first but, this does not allow for scalability. We need a solution that does that comparison automatically for us.
 
 An ideal visual test suite would take and keep the components' snapshots from the master build, and it should compare with the snapshots taken based on the new branch build. If two images look different it would notify in the PR. Percy, Reg Viz and Chromatic are some tools that offer this possibility but, for this blog post, we are going to focus on Chromatic as it plays really nice with Storybook (an amazing framework for documenting components).
 
-​
-
 # What is Chromatic?
 
 Chromatic plays nicely with Storybook, actually the maintainers are the same team as the Storybook maintainers, which means it keeps up with the Storybook upgrades. The nice thing about Chromatic is that it brings designers closer to the development cycle, creating an approval process for the UI changes and integrating it with Git, which means if the designer approves the UI changes it makes the CI pipeline green, otherwise it would fail the pipeline.
 
 This is cool, as now designers don't need to do technical stuff such as pulling the branch locally to run the app to check the changes. Despite catching wrong visual changes, it also is great for when new components are created as well as for introducing new design updates as designers can take a look and play with the component from a centralized dashboard.
-
-​
 
 # How it saved the day
 
@@ -50,8 +44,6 @@ When clicking in Details it shows a dashboard with all the stories with UI chang
 
 ![Dashboard showing the components with UI change](/assets/screen-shot-2021-10-26-at-6.09.48-pm.png "Dashboard showing the components with UI change")
 
-﻿
-
 When clicking and navigating to the UI changes it is shown a neat view for the snapshot comparison. You can press a button to toggle the before and after images to make it easier to sport where is the difference. It also provides the possibility to place one image above the other with color inversion to make it even easier to see the difference. The image below shows how all the form was pushed down with the changes made.
 
 ![Image overlap showing the UI change](/assets/screen-shot-2021-10-26-at-6.17.22-pm.png "Image overlap showing the UI change")
@@ -59,8 +51,6 @@ When clicking and navigating to the UI changes it is shown a neat view for the s
 You can see, in the beginning, the change is very shuttle, but as the form grows the difference becomes more evident. Thanks Chromatic for catching it, you saved the day.
 
 After updating the code and pushing a new commit, the visual tests were executed again, and now it looks much better, only the change I wanted is in place.
-
-​
 
 # Let's wrap it up
 
