@@ -32,11 +32,11 @@ This is cool, as now designers don't need to do technical stuff such as pulling 
 
 # How it saved the day
 
-I am going to share a real situation that happened to me when adding a simple fix for a bug. It was on a component called \`FormRow\`, which is responsible for placing form inputs side-by-side. If one of the inputs doesn't have an empty label it would not align properly, as shown in the image below.
+I am going to share a real situation that happened to me when adding a simple fix for a bug. It was on a component called `FormRow`, which is responsible for placing form inputs side-by-side. If one of the inputs doesn't have an empty label it would not align properly, as shown in the image below.
 
 ![Bug with a misaligned input field.](/assets/screen-shot-2021-10-26-at-6.49.46-pm.png "Bug with a misaligned input field.")
 
-The PR with the solution was very simple, basically, it just adds the following CSS rule \`min-height: 22px\`. For me, it looked very good, it solved the bug!
+The PR with the solution was very simple, basically, it just adds the following CSS rule `min-height: 22px`. For me, it looked very good, it solved the bug!
 
 ![Bug fixed (I supposed)](/assets/screen-shot-2021-10-26-at-6.50.34-pm.png "Bug fixed (I supposed)")
 
